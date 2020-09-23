@@ -13,7 +13,7 @@ public class LogEntity {
     private String type;
     private WorkSessionEntity workSession;
 
-    @Id
+    @Id @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name = "ID")
     public int getId() {
         return id;

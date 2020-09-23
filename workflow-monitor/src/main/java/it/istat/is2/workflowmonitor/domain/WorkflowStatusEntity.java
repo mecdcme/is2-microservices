@@ -5,18 +5,14 @@ import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
-@Table(name = "is2_workflow_status", schema = "is2", catalog = "")
-public class WorkflowStatusEntity {
+@Table(name = "is2_workflow_status", schema = "is2")
+public class WorkflowStatusEntity extends BaseEntity{
     private Long id;
     private Long workSessionId;
     private Long businessFunctionId;
     private Integer status;
-    private Timestamp dttIns;
-    private String userIns;
-    private Timestamp dttUpd;
-    private String userUpd;
 
-    @Id
+    @Id @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name = "id")
     public Long getId() {
         return id;
@@ -56,45 +52,6 @@ public class WorkflowStatusEntity {
         this.status = status;
     }
 
-    @Basic
-    @Column(name = "dtt_ins")
-    public Timestamp getDttIns() {
-        return dttIns;
-    }
-
-    public void setDttIns(Timestamp dttIns) {
-        this.dttIns = dttIns;
-    }
-
-    @Basic
-    @Column(name = "user_ins")
-    public String getUserIns() {
-        return userIns;
-    }
-
-    public void setUserIns(String userIns) {
-        this.userIns = userIns;
-    }
-
-    @Basic
-    @Column(name = "dtt_upd")
-    public Timestamp getDttUpd() {
-        return dttUpd;
-    }
-
-    public void setDttUpd(Timestamp dttUpd) {
-        this.dttUpd = dttUpd;
-    }
-
-    @Basic
-    @Column(name = "user_upd")
-    public String getUserUpd() {
-        return userUpd;
-    }
-
-    public void setUserUpd(String userUpd) {
-        this.userUpd = userUpd;
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -105,14 +62,14 @@ public class WorkflowStatusEntity {
                 Objects.equals(workSessionId, that.workSessionId) &&
                 Objects.equals(businessFunctionId, that.businessFunctionId) &&
                 Objects.equals(status, that.status) &&
-                Objects.equals(dttIns, that.dttIns) &&
-                Objects.equals(userIns, that.userIns) &&
-                Objects.equals(dttUpd, that.dttUpd) &&
-                Objects.equals(userUpd, that.userUpd);
+                Objects.equals(getCreationDate(), that.getCreationDate()) &&
+                Objects.equals(getCreatorUser(), that.getCreatorUser()) &&
+                Objects.equals(getModifyDate(), that.getModifyDate()) &&
+                Objects.equals(getModifierUser(), that.getModifierUser());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, workSessionId, businessFunctionId, status, dttIns, userIns, dttUpd, userUpd);
+        return Objects.hash(id, workSessionId, businessFunctionId, status, getCreationDate(), getCreatorUser(), getModifyDate(), getModifierUser());
     }
 }

@@ -12,12 +12,12 @@ public class WorkflowStatusHistoryEntity {
     private long workSessionId;
     private long businessFunctionId;
     private int status;
-    private Timestamp dttIns;
-    private String userIns;
-    private Timestamp dttUpd;
-    private String userUpd;
+    private Timestamp creationDate;
+    private String creatorUser;
+    private Timestamp modifyDate;
+    private String modifierUser;
 
-    @Id
+    @Id @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name = "id")
     public long getId() {
         return id;
@@ -68,43 +68,43 @@ public class WorkflowStatusHistoryEntity {
     }
 
     @Basic
-    @Column(name = "dtt_ins")
-    public Timestamp getDttIns() {
-        return dttIns;
+    @Column(name = "creationDate")
+    public Timestamp getCreationDate() {
+        return creationDate;
     }
 
-    public void setDttIns(Timestamp dttIns) {
-        this.dttIns = dttIns;
-    }
-
-    @Basic
-    @Column(name = "user_ins")
-    public String getUserIns() {
-        return userIns;
-    }
-
-    public void setUserIns(String userIns) {
-        this.userIns = userIns;
+    public void setCreationDate(Timestamp dttIns) {
+        this.creationDate = dttIns;
     }
 
     @Basic
-    @Column(name = "dtt_upd")
-    public Timestamp getDttUpd() {
-        return dttUpd;
+    @Column(name = "creatorUser")
+    public String getCreatorUser() {
+        return creatorUser;
     }
 
-    public void setDttUpd(Timestamp dttUpd) {
-        this.dttUpd = dttUpd;
+    public void setCreatorUser(String userIns) {
+        this.creatorUser = userIns;
     }
 
     @Basic
-    @Column(name = "user_upd")
-    public String getUserUpd() {
-        return userUpd;
+    @Column(name = "modifyDate")
+    public Timestamp getModifyDate() {
+        return modifyDate;
     }
 
-    public void setUserUpd(String userUpd) {
-        this.userUpd = userUpd;
+    public void setModifyDate(Timestamp dttUpd) {
+        this.modifyDate = dttUpd;
+    }
+
+    @Basic
+    @Column(name = "modifierUser")
+    public String getModifierUser() {
+        return modifierUser;
+    }
+
+    public void setModifierUser(String userUpd) {
+        this.modifierUser = userUpd;
     }
 
     @Override
@@ -117,14 +117,14 @@ public class WorkflowStatusHistoryEntity {
                 workSessionId == that.workSessionId &&
                 businessFunctionId == that.businessFunctionId &&
                 status == that.status &&
-                Objects.equals(dttIns, that.dttIns) &&
-                Objects.equals(userIns, that.userIns) &&
-                Objects.equals(dttUpd, that.dttUpd) &&
-                Objects.equals(userUpd, that.userUpd);
+                Objects.equals(creationDate, that.creationDate) &&
+                Objects.equals(creatorUser, that.creatorUser) &&
+                Objects.equals(modifyDate, that.modifyDate) &&
+                Objects.equals(modifierUser, that.modifierUser);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, workflowStatusId, workSessionId, businessFunctionId, status, dttIns, userIns, dttUpd, userUpd);
+        return Objects.hash(id, workflowStatusId, workSessionId, businessFunctionId, status, creationDate, creatorUser, modifyDate, modifierUser);
     }
 }

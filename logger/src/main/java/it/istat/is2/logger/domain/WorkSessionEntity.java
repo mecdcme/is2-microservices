@@ -12,7 +12,7 @@ public class WorkSessionEntity {
     private String descr;
     private Timestamp lastUpdate;
 
-    @Id
+    @Id @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name = "ID")
     public Long getId() {
         return id;
