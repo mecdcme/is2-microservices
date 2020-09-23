@@ -33,6 +33,7 @@ public class MessageListener {
 
         Optional<WorkflowStatusEntity> lastRecord = this.workFlowStatusRepository.findTopByWorkSessionIdAndBusinessFunctionIdOrderByCreationDateDesc(in.getWorkSessionId(), in.getBusinessProcessId());
         lastRecord.ifPresent(r -> {
+            log.info("found previous record, insert history");
             WorkflowStatusHistoryEntity h = new WorkflowStatusHistoryEntity();
             h.setBusinessFunctionId(r.getBusinessFunctionId());
             h.setWorkSessionId(r.getWorkSessionId());
@@ -43,14 +44,26 @@ public class MessageListener {
             h.setCreatorUser(r.getCreatorUser());
             h.setModifierUser(r.getModifierUser());
 
+            log.info("history to save : {}", h);
             this.workFlowStatusHistoryRepository.save(h);
         });
 
-        WorkflowStatusEntity e = new WorkflowStatusEntity();
-        e.setBusinessFunctionId(in.getBusinessProcessId());
-        e.setStatus(in.getStatus());
-        e.setWorkSessionId(in.getWorkSessionId());
+        WorkflowStatusEntity e;
 
+        if (lastRecord.isPresent()) {
+            log.info("update existing records");
+            e = lastRecord.get();
+            e.setStatus(in.getStatus());
+        }
+        else {
+            log.info("create new record");
+            e = new WorkflowStatusEntity();
+            e.setBusinessFunctionId(in.getBusinessProcessId());
+            e.setStatus(in.getStatus());
+            e.setWorkSessionId(in.getWorkSessionId());
+        }
+
+        log.info("workflow status to save : {}", e);
         this.workFlowStatusRepository.save(e);
     }
 

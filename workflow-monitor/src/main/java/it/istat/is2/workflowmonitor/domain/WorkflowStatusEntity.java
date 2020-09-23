@@ -1,9 +1,12 @@
 package it.istat.is2.workflowmonitor.domain;
 
+import lombok.ToString;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Objects;
 
+@ToString
 @Entity
 @Table(name = "is2_workflow_status", schema = "is2")
 public class WorkflowStatusEntity extends BaseEntity{
