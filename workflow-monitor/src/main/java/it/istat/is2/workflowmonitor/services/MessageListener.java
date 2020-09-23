@@ -2,6 +2,7 @@ package it.istat.is2.workflowmonitor.services;
 
 import it.istat.is2.workflowmonitor.domain.WorkflowStatusEntity;
 import it.istat.is2.workflowmonitor.domain.WorkflowStatusHistoryEntity;
+import it.istat.is2.workflowmonitor.enums.ProcessStatus;
 import it.istat.is2.workflowmonitor.repository.WorkFlowStatusHistoryRepository;
 import it.istat.is2.workflowmonitor.repository.WorkFlowStatusRepository;
 import it.istat.is2.workflowmonitor.request.WorkFlowStatutsCreateRequest;
@@ -53,13 +54,13 @@ public class MessageListener {
         if (lastRecord.isPresent()) {
             log.info("update existing records");
             e = lastRecord.get();
-            e.setStatus(in.getStatus());
+            e.setStatus(in.getStatus().getCode());
         }
         else {
             log.info("create new record");
             e = new WorkflowStatusEntity();
             e.setBusinessFunctionId(in.getBusinessProcessId());
-            e.setStatus(in.getStatus());
+            e.setStatus(in.getStatus().getCode());
             e.setWorkSessionId(in.getWorkSessionId());
         }
 

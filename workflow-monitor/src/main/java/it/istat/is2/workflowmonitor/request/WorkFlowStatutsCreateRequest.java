@@ -1,5 +1,6 @@
 package it.istat.is2.workflowmonitor.request;
 
+import it.istat.is2.workflowmonitor.enums.ProcessStatus;
 import lombok.Data;
 import lombok.ToString;
 
@@ -13,5 +14,5 @@ public class WorkFlowStatutsCreateRequest implements Serializable {
 
     private Long workSessionId;
     private Long businessProcessId;
-    private Integer status;
+    private ProcessStatus status;
 }
