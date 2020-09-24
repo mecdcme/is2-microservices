@@ -17,3 +17,5 @@ server:
 
 dataset:
   create_queue_name: create_dataset_queue
+api:
+  version: 1
