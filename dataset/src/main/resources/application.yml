@@ -1,0 +1,19 @@
+spring:
+  jpa:
+    database: MYSQL
+    show-sql: false
+    hibernate:
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+  datasource:
+    url: jdbc:mysql://localhost:3306/is2?createDatabaseIfNotExist=true&useSSL=false&useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: root
+    password: bealu20092296
+    driverClassName: com.mysql.cj.jdbc.Driver
+    platform: mysql
+server:
+  port: 8082
+
+dataset:
+  create_queue_name: create_dataset_queue
