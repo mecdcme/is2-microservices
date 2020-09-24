@@ -11,7 +11,7 @@ public class DatasetApplication {
 
     @Value("${spring.datasource.platform}")
     private String datasourcePlatform;
-    
+
     public static void main(String[] args) {
         SpringApplication.run(DatasetApplication.class, args);
     }
