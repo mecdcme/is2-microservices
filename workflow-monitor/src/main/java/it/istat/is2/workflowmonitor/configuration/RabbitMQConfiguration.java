@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RabbitMQConfiguration {
 
-    @Value("${monitor.create_queue_name")
+    @Value("${monitor.create_queue_name}")
     private String queueName;
 
     @Bean
