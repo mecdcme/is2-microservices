@@ -90,6 +90,7 @@
     </dependencies>
 
     <build>
+        <finalName>is2-dataset</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

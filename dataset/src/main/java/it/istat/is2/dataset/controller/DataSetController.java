@@ -65,40 +65,22 @@ public class DataSetController {
         String nameColumnToOrder = allParams.get("columns[" + indexColunmToOrder + "][data]");
         String dirColumnOrder = allParams.get("order[0][dir]");
 
-        HashMap<String, String> parameters = null;
-        String noparams = "noparams";
-        if (!noparams.equals(parametri)) {
-            StringTokenizer st = new StringTokenizer(parametri, "&");
-            StringTokenizer st2 = null;
-            parameters = new HashMap<>();
-
-            ArrayList<String> nomeValore = null;
-            while (st.hasMoreTokens()) {
-                st2 = new StringTokenizer(st.nextToken(), "=");
-                nomeValore = new ArrayList<>();
-                while (st2.hasMoreTokens()) {
-                    nomeValore.add(st2.nextToken());
-                }
-
-                parameters.put(nomeValore.get(0), nomeValore.get(1));
-            }
-        }
+        HashMap<String, String> parameters = parseParameters(parametri);
         String dtb = datasetService.loadDatasetValori(dfile, length, start, draw, parameters, nameColumnToOrder, dirColumnOrder);
 
         return ResponseEntity.ok(dtb);
     }
 
+
+
     @PostMapping(value = "/setvariabilesum")
-    public ResponseEntity<?> setVarSum(@RequestBody SetVariabileSumRequest request) throws IOException {
+    public ResponseEntity<?> setVarSum(@RequestBody SetVariabileSumRequest request)  {
 
         DatasetColumn dcol = datasetService.findOneColonna(request.getIdcol());
         StatisticalVariableCls sum = new StatisticalVariableCls(request.getIdva());
         dcol.setVariabileType(sum);
-        try {
-            dcol = datasetService.salvaColonna(dcol);
-        } catch (Exception e) {
-            //TODO: Inviare a notificatione service
-        }
+        dcol = datasetService.salvaColonna(dcol);
+
         return ResponseEntity.status(HttpStatus.CREATED).body(dcol);
     }
 
@@ -297,5 +279,30 @@ public class DataSetController {
     public ResponseEntity<Boolean> loadDatasetFromTable(@RequestBody LoadTableRequest request) {
         datasetService.loadDatasetFromTable(request.getIdsessione(), request.getDbschema(), request.getTablename(), request.getFields());
         return ResponseEntity.status(HttpStatus.CREATED).body(Boolean.TRUE);
+    }
+
+
+
+
+    private HashMap<String, String> parseParameters(String parametri) {
+        HashMap<String, String> parameters = null;
+        String noparams = "noparams";
+        if (!noparams.equals(parametri)) {
+            StringTokenizer st = new StringTokenizer(parametri, "&");
+            StringTokenizer st2 = null;
+            parameters = new HashMap<>();
+
+            ArrayList<String> nomeValore = null;
+            while (st.hasMoreTokens()) {
+                st2 = new StringTokenizer(st.nextToken(), "=");
+                nomeValore = new ArrayList<>();
+                while (st2.hasMoreTokens()) {
+                    nomeValore.add(st2.nextToken());
+                }
+
+                parameters.put(nomeValore.get(0), nomeValore.get(1));
+            }
+        }
+        return parameters;
     }
 }
