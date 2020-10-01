@@ -1,0 +1,36 @@
+spring:
+  mail:
+    host: mail.closedstream.net
+    port: 25
+    username: test@closedstream.net
+    password: test$$test!!
+
+  jpa:
+    database: MYSQL
+    show-sql: true
+    hibernate:
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/is2_notificator?createDatabaseIfNotExist=true&useSSL=false&useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: root
+    password: bealu20092296
+    driverClassName: com.mysql.cj.jdbc.Driver
+    platform: mysql
+
+server:
+  port: 8080
+notificator:
+  queue:
+    create: createEventQueue
+    email: sendEmailQueue
+email:
+  recipients:
+    - mi0772@gmail.com
+    - cdigiuseppe@me.com
