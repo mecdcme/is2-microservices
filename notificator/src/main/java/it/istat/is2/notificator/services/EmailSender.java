@@ -34,5 +34,4 @@ public class EmailSender {
         unsentEmail.forEach(e -> this.rabbitTemplate.convertAndSend(queueName, new SendEmailRequest.Builder().recipients(this.emailRecipientsConfiguration.getRecipients()).fromEntity(e).build()));
         log.info("done");
     }
-
 }
