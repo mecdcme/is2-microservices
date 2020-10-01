@@ -50,7 +50,7 @@ public class MessageListener {
 
         EventEntity entity = this.eventRepository.findById(in.getId()).orElseThrow();
         entity.setEmailSent(1);
-        entity.setEventDate(new Timestamp(new Date().getTime()));
+        entity.setEmailSentDate(new Timestamp(new Date().getTime()));
         this.eventRepository.save(entity);
 
         emailSender.send(message);

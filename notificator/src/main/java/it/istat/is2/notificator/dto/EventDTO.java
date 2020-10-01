@@ -14,10 +14,10 @@ public class EventDTO {
     private Timestamp eventDate;
     private String descriptionSummary;
     private String description;
-    private int emailSent;
+    private Boolean emailSent;
     private Timestamp emailSentDate;
 
-    private EventDTO(Long id, EventType type, Timestamp eventDate, String descriptionSummary, String description, int emailSent, Timestamp emailSentDate) {
+    private EventDTO(Long id, EventType type, Timestamp eventDate, String descriptionSummary, String description, Boolean emailSent, Timestamp emailSentDate) {
         this.id = id;
         this.type = type;
         this.eventDate = eventDate;
@@ -33,7 +33,7 @@ public class EventDTO {
         private Timestamp eventDate;
         private String descriptionSummary;
         private String description;
-        private int emailSent;
+        private Boolean emailSent;
         private Timestamp emailSentDate;
 
         public Builder fromEntity(EventEntity entity) {
@@ -42,7 +42,7 @@ public class EventDTO {
             this.eventDate = entity.getEventDate();
             this.descriptionSummary = entity.getDescriptionSummary();
             this.description = entity.getDescription();
-            this.emailSent = entity.getEmailSent();
+            this.emailSent = entity.getEmailSent() > 0;
             this.emailSentDate = entity.getEmailSentDate();
 
             return this;
