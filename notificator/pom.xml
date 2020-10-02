@@ -79,6 +79,7 @@
     </dependencies>
 
     <build>
+        <finalName>is2-notificator</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
