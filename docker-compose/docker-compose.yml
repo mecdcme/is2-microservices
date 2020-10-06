@@ -15,7 +15,7 @@ services:
       - 5672:5672
       - 15672:15672
   is2-workflow-monitor:
-    image: istat/workflow-monitor:latest
+    image: mecdcme/is2-workflow-monitor:latest
     ports:
       - 8081:8080
     environment:
@@ -31,7 +31,7 @@ services:
       - rabbitmq
     restart: always
   is2-logger:
-    image: istat/logger:latest
+    image: mecdcme/is2-logger:latest
     ports:
       - 8082:8080
     environment:
@@ -47,7 +47,7 @@ services:
       - rabbitmq
     restart: always
   is2-dataset:
-    image: istat/dataset:latest
+    image: mecdcme/is2-dataset:latest
     ports:
       - 8083:8080
     environment:
@@ -63,7 +63,7 @@ services:
       - rabbitmq
     restart: always
   is2-notificator:
-    image: istat/notificator:latest
+    image: mecdcme/is2-notificator:latest
     ports:
       - 8084:8080
     environment:
