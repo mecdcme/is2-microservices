@@ -31,44 +31,19 @@ public class RabbitMQConfiguration {
 
         return connectionFactory;
     }
-
-    /**
-     * Required for executing adminstration functions against an AMQP Broker
-     */
+    
     @Bean
     public AmqpAdmin amqpAdmin() {
         return new RabbitAdmin(connectionFactory());
     }
 
-    /**
-     * This queue will be declared. This means it will be created if it does not exist. Once declared, you can do something
-     * like the following:
-     *
-     * @RabbitListener(queues = "#{@myDurableQueue}")
-     * @Transactional
-     * public void handleMyDurableQueueMessage(CustomDurableDto myMessage) {
-     *    // Anything you want! This can also return a non-void which will queue it back in to the queue attached to @RabbitListener
-     * }
-     */
     @Bean
     public Queue createEventQueue() {
-        // This queue has the following properties:
-        // name: my_durable
-        // durable: true
-        // exclusive: false
-        // auto_delete: false
         return new Queue("createEventQueue", true, false, false);
     }
 
     @Bean
     public Queue sendEmailQueue() {
-        // This queue has the following properties:
-        // name: my_durable
-        // durable: true
-        // exclusive: false
-        // auto_delete: false
         return new Queue("sendEmailQueue", true, false, false);
     }
-
-
 }
