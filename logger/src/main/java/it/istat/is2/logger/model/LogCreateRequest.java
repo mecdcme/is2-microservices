@@ -16,11 +16,11 @@ public class LogCreateRequest implements Serializable {
 
     @NotNull
     @NotEmpty
-    private String msg;
+    private String logContent;
 
     @NotNull
     @Positive
-    private Long idSessione;
+    private Long sessionId;
 
-    private String tipo;
+    private String type;
 }

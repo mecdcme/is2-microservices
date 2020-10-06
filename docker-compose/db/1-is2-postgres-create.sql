@@ -5,6 +5,33 @@
 -- Dumped from database version 11.5
 -- Dumped by pg_dump version 11.2
 
+DROP SCHEMA IF EXISTS is2_notificator CASCADE;
+CREATE SCHEMA is2_notificator;
+
+-- is2_notificator.Event definition
+
+CREATE TABLE is2_notificator.event (
+  id bigint NOT NULL,
+  event_type bigint NOT NULL,
+  event_date timestamp without time zone NOT NULL,
+  description_summary character varying(2500) NOT NULL,
+  description character varying(2500),
+  email_sent bigint NOT NULL,
+  email_sent_date timestamp without time zone
+);
+
+
+CREATE SEQUENCE is2_notificator.is2_event_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+ALTER SEQUENCE is2_notificator.is2_event_seq OWNED BY is2_notificator.event.id;
+ALTER TABLE ONLY is2_notificator.event ALTER COLUMN id SET DEFAULT nextval('is2_notificator.is2_event_seq'::regclass);
+
+
 DROP SCHEMA IF EXISTS is2 CASCADE;
 CREATE SCHEMA is2;
 

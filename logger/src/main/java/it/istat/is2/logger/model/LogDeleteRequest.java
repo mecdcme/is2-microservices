@@ -14,7 +14,7 @@ public class LogDeleteRequest implements Serializable {
     public static final long serialVersionUID = 1L;
 
     @NotNull @Positive
-    private Long idSessione;
+    private Long sessioneId;
 
-    private String tipo;
+    private String type;
 }

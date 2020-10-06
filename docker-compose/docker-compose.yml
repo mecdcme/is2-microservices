@@ -79,6 +79,6 @@ services:
       - rabbitmq
     restart: always    
   db:
-    image: is2-postgres:latest
+    image: mecdcme/is2-postgres:latest
     environment:
       - POSTGRES_PASSWORD=postgres

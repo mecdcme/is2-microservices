@@ -1,0 +1,1 @@
+docker build -t is2-postgres -f db.Dockerfile .

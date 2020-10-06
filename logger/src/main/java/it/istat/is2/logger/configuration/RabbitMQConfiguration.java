@@ -17,3 +17,5 @@ public class RabbitMQConfiguration {
         return new Queue("deleteLogQueue", true);
     }
 }
+
+

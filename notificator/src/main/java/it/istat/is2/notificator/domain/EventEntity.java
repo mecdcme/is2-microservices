@@ -26,7 +26,7 @@ public class EventEntity {
     }
 
     @Basic
-    @Column(name = "type")
+    @Column(name = "event_type")
     public int getType() {
         return type;
     }

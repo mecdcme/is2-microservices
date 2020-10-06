@@ -9,13 +9,13 @@ import java.sql.Timestamp;
 public final class LogDTO {
 
     private int id;
-    private String msg;
+    private String content;
     private Timestamp msgTime;
     private String type;
 
     private LogDTO(int id, String msg, Timestamp msgTime, String type) {
         this.id = id;
-        this.msg = msg;
+        this.content = msg;
         this.msgTime = msgTime;
         this.type = type;
     }

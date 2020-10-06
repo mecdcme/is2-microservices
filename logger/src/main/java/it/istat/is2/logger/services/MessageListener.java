@@ -32,11 +32,11 @@ public class MessageListener {
         log.info("Create Log entry from this request : {}", in);
         LogEntity entity = new LogEntity();
 
-        WorkSessionEntity workSessionEntity = this.workSessionRepository.findById(in.getIdSessione()).orElseThrow(RuntimeException::new);
+        WorkSessionEntity workSessionEntity = this.workSessionRepository.findById(in.getSessionId()).orElseThrow(RuntimeException::new);
         entity.setWorkSession(workSessionEntity);
-        entity.setMsg(in.getMsg());
+        entity.setMsg(in.getLogContent());
         entity.setMsgTime(new Timestamp(new Date().getTime()));
-        entity.setType ( in.getTipo() == null || in.getTipo().equals("") ? "OUT" : in.getTipo());
+        entity.setType ( in.getType() == null || in.getType().equals("") ? "OUT" : in.getType());
 
         this.logRepository.save(entity);
     }
@@ -45,10 +45,10 @@ public class MessageListener {
     public void deleteLogEntry(LogDeleteRequest in) {
         log.info("Delete Log entry from this request : {}", in);
 
-        if (in.getTipo() != null && !in.getTipo().equals("")) {
-            this.logRepository.deleteByWorkSessionAndType(in.getIdSessione(), in.getTipo());
+        if (in.getType() != null && !in.getType().equals("")) {
+            this.logRepository.deleteByWorkSessionAndType(in.getSessioneId(), in.getType());
         } else {
-            this.logRepository.deleteByWorkSession(in.getIdSessione());
+            this.logRepository.deleteByWorkSession(in.getSessioneId());
         }
     }
 }

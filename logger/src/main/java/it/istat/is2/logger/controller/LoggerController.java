@@ -68,14 +68,14 @@ public class LoggerController {
 
     @DeleteMapping("/{idSessione}")
     public ResponseEntity<Void> deleteByIdSessione(@PathVariable("idSessione") Long idSessione) {
-        LogDeleteRequest request = LogDeleteRequest.builder().idSessione(idSessione).build();
+        LogDeleteRequest request = LogDeleteRequest.builder().sessioneId(idSessione).build();
         rabbitTemplate.convertAndSend(Q_DELETE, request);
         return ResponseEntity.ok().build();
     }
 
     @DeleteMapping("/{idSessione}/{tipo}")
     public ResponseEntity<Void> deleteByIdSessioneAndTipo(@PathVariable("idSessione") Long idSessione, @PathVariable("tipo") String tipo) {
-        LogDeleteRequest request = LogDeleteRequest.builder().idSessione(idSessione).tipo(tipo).build();
+        LogDeleteRequest request = LogDeleteRequest.builder().sessioneId(idSessione).type(tipo).build();
         rabbitTemplate.convertAndSend(Q_DELETE, request);
         return ResponseEntity.ok().build();
     }
