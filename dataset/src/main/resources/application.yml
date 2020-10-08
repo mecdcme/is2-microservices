@@ -1,6 +1,5 @@
 spring:
   jpa:
-    database: MYSQL
     show-sql: false
     hibernate:
       naming:

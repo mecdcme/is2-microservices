@@ -6,7 +6,6 @@ spring:
     password: test$$test!!
 
   jpa:
-    database: MYSQL
     show-sql: true
     hibernate:
       naming:
