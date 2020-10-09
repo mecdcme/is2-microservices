@@ -11,11 +11,12 @@ import it.istat.is2.dataset.request.LoadInputDataRequest;
 import it.istat.is2.dataset.request.LoadTableRequest;
 import it.istat.is2.dataset.request.SetVariabileSumRequest;
 import it.istat.is2.dataset.service.DatasetService;
-import it.istat.is2.dataset.utils.FileHandler;
 import it.istat.is2.dataset.utils.Utility;
 import lombok.extern.slf4j.Slf4j;
 import org.json.JSONException;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -26,7 +27,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
-import java.io.*;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -36,10 +40,25 @@ import java.util.stream.Collectors;
 public class DataSetController {
 
     private final DatasetService datasetService;
+    private final RabbitTemplate rabbitTemplate;
+
+
+    @Value("${queue.set_variable}")
+    private String setVariableQueueName;
+
+    @Value("${queue.loadInputData}")
+    private String loadInputDataQueueName;
+
+    @Value("${queue.loadTable}")
+    private String loadTableQueueName;
+
+    @Value("${queue.deleteDataset}")
+    private String deleteDatasetQueueName;
 
     @Autowired
-    public DataSetController(DatasetService datasetService) {
+    public DataSetController(DatasetService datasetService, RabbitTemplate rabbitTemplate) {
         this.datasetService = datasetService;
+        this.rabbitTemplate = rabbitTemplate;
     }
 
     @GetMapping("/colonnasql/{dfile}/{rigainf}/{rigasup}")
@@ -74,14 +93,9 @@ public class DataSetController {
 
 
     @PostMapping(value = "/setvariabilesum")
-    public ResponseEntity<?> setVarSum(@RequestBody SetVariabileSumRequest request)  {
-
-        DatasetColumn dcol = datasetService.findOneColonna(request.getIdcol());
-        StatisticalVariableCls sum = new StatisticalVariableCls(request.getIdva());
-        dcol.setVariabileType(sum);
-        dcol = datasetService.salvaColonna(dcol);
-
-        return ResponseEntity.status(HttpStatus.CREATED).body(dcol);
+    public ResponseEntity<Boolean> setVarSum(@RequestBody SetVariabileSumRequest request)  {
+        rabbitTemplate.convertAndSend(setVariableQueueName, request);
+        return ResponseEntity.ok(Boolean.TRUE);
     }
 
     @GetMapping(value = "/download/dataset/{tipoFile}/{dfile}")
@@ -249,40 +263,23 @@ public class DataSetController {
     }
 
     @PostMapping(value = "/loadInputData")
-    public ResponseEntity<Boolean> loadInputData(@RequestBody LoadInputDataRequest form) throws Exception {
-
-        String labelFile  = form.getLabelFile();
-        Long tipoDato     = form.getFileType();
-        String separatore = form.getDelimiter();
-        String idsessione = form.getIdsessione();
-
-        File f = FileHandler.convertMultipartFileToFile(form.getFileName());
-        String pathTmpFile = f.getAbsolutePath().replace("\\", "/");
-
-        var valoriHeaderNum = FileHandler.getCampiHeaderNumIndex(pathTmpFile, separatore.toCharArray()[0]);
-        var campiL = FileHandler.getArrayListFromCsv2(pathTmpFile, form.getNumeroCampi(), separatore.toCharArray()[0], valoriHeaderNum);
-
-        datasetService.save(campiL, valoriHeaderNum, labelFile, tipoDato, separatore, form.getDescrizione(), idsessione);
-
+    public ResponseEntity<Boolean> loadInputData(@RequestBody LoadInputDataRequest request) throws Exception {
+        rabbitTemplate.convertAndSend(loadInputDataQueueName, request);
         return ResponseEntity.status(HttpStatus.CREATED).body(Boolean.TRUE);
     }
 
     @DeleteMapping(value = "/{datasetId}")
     public ResponseEntity<Boolean> deleteDataset(@PathVariable("datasetId") Long idDataset) {
 
-        datasetService.deleteDataset(idDataset);
-
-        return ResponseEntity.ok(Boolean.TRUE);
+        rabbitTemplate.convertAndSend(deleteDatasetQueueName, idDataset);
+        return ResponseEntity.status(HttpStatus.CREATED).body(Boolean.TRUE);
     }
 
     @PostMapping(value = "/dataset/loadtable")
     public ResponseEntity<Boolean> loadDatasetFromTable(@RequestBody LoadTableRequest request) {
-        datasetService.loadDatasetFromTable(request.getIdsessione(), request.getDbschema(), request.getTablename(), request.getFields());
+        rabbitTemplate.convertAndSend(loadTableQueueName, request);
         return ResponseEntity.status(HttpStatus.CREATED).body(Boolean.TRUE);
     }
-
-
-
 
     private HashMap<String, String> parseParameters(String parametri) {
         HashMap<String, String> parameters = null;
