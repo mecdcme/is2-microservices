@@ -37,12 +37,22 @@ public class RabbitMQConfiguration {
     }
 
     @Bean
-    public Queue createEventQueue() {
-        return new Queue("createEventQueue", true, false, false);
+    public Queue createLoadTableQueue() {
+        return new Queue("dataset_loadtable", true, false, false);
     }
 
     @Bean
-    public Queue sendEmailQueue() {
-        return new Queue("sendEmailQueue", true, false, false);
+    public Queue sendDeleteQueue() {
+        return new Queue("dataset_delete", true, false, false);
+    }
+
+    @Bean
+    public Queue createSetVariableQueue() {
+        return new Queue("dataset_set_variabile", true, false, false);
+    }
+
+    @Bean
+    public Queue createLoadInputDataQueue() {
+        return new Queue("dataset_loadinputdata", true, false, false);
     }
 }

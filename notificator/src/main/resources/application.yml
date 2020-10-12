@@ -1,4 +1,6 @@
 spring:
+  application:
+    name: is2-notificator
   mail:
     host: mail.closedstream.net
     port: 25
@@ -24,7 +26,7 @@ spring:
     platform: mysql
 
 server:
-  port: 8080
+  port: 8084
 notificator:
   queue:
     create: createEventQueue
@@ -33,3 +35,12 @@ email:
   recipients:
     - mi0772@gmail.com
     - cdigiuseppe@me.com
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8661/eureka
+    instance:
+      hostname: localhost

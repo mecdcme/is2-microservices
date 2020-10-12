@@ -1,0 +1,29 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: is2-api-gateway
+
+zuul:
+  routes:
+    service_workflow_status:
+      path: /resource/api/monitor/**
+      url: http://localhost:8081/monitor
+    service_logger:
+      path: /resource/api/log/**
+      url: http://localhost:8082/log
+    service_dataset:
+      path: /resource/api/dataset/**
+      url: http://localhost:8083/dataset
+    service_notificator:
+      path: /resource/api/notificator/**
+      url: http://localhost:8084/notificator
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8661/eureka
+    instance:
+      hostname: localhost

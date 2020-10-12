@@ -1,4 +1,6 @@
 spring:
+  application:
+    name: is2-dataset-service
   jpa:
     show-sql: false
     hibernate:
@@ -17,7 +19,7 @@ spring:
     driverClassName: com.mysql.cj.jdbc.Driver
     platform: mysql
 server:
-  port: 8082
+  port: 8083
 
 queue:
   set_variable: dataset_set_variabile
@@ -26,3 +28,12 @@ queue:
   deleteDataset: dataset_delete
 api:
   version: 1
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8661/eureka
+    instance:
+      hostname: localhost

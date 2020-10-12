@@ -1,5 +1,12 @@
 version: '3'
 services:
+  eureka-server:
+    image: mecdcme/is2-eureka-server
+    environment:
+      - SERVER_PORT=8661
+    ports: 
+      - 8661:8661
+    restart: always    
   rabbitmq:
     image: rabbitmq:3.7.14-management
     container_name: rabbitmq2
@@ -13,7 +20,7 @@ services:
   is2-workflow-monitor:
     image: mecdcme/is2-workflow-monitor:latest
     ports:
-      - 8081:8080
+      - 8081:8081
     environment:
       - SERVER_PORT=8080
       - SPRING_RABBITMQ_HOST=rabbitmq2
@@ -22,14 +29,17 @@ services:
       - SPRING_DATASOURCE_PASSWORD=postgres
       - SPRING_DATASOURCE_DRIVERCLASSNAME=org.postgresql.Driver
       - SPRING_DATASOURCE_PLATFORM=postgresql
+      - EUREKA_CLIENT_INSTANCE_HOSTNAME=eureka-server
+      - EUREKA_CLIENT_SERVICE-URL_DEFAULTZONE=http://eureka-server:8661/eureka
     depends_on:
       - db
       - rabbitmq
+      - eureka-server
     restart: always
   is2-logger:
     image: mecdcme/is2-logger:latest
     ports:
-      - 8082:8080
+      - 8082:8082
     environment:
       - SERVER_PORT=8080
       - SPRING_RABBITMQ_HOST=rabbitmq2
@@ -38,14 +48,17 @@ services:
       - SPRING_DATASOURCE_PASSWORD=postgres
       - SPRING_DATASOURCE_DRIVERCLASSNAME=org.postgresql.Driver
       - SPRING_DATASOURCE_PLATFORM=postgresql
+      - EUREKA_CLIENT_INSTANCE_HOSTNAME=eureka-server
+      - EUREKA_CLIENT_SERVICE-URL_DEFAULTZONE=http://eureka-server:8661/eureka
     depends_on:
       - db
       - rabbitmq
+      - eureka-server
     restart: always
   is2-dataset:
     image: mecdcme/is2-dataset:latest
     ports:
-      - 8083:8080
+      - 8083:8083
     environment:
       - SERVER_PORT=8080
       - SPRING_RABBITMQ_HOST=rabbitmq2
@@ -54,14 +67,17 @@ services:
       - SPRING_DATASOURCE_PASSWORD=postgres
       - SPRING_DATASOURCE_DRIVERCLASSNAME=org.postgresql.Driver
       - SPRING_DATASOURCE_PLATFORM=postgresql
+      - EUREKA_CLIENT_INSTANCE_HOSTNAME=eureka-server
+      - EUREKA_CLIENT_SERVICE-URL_DEFAULTZONE=http://eureka-server:8661/eureka
     depends_on:
       - db
       - rabbitmq
+      - eureka-server
     restart: always
   is2-notificator:
     image: mecdcme/is2-notificator:latest
     ports:
-      - 8084:8080
+      - 8084:8084
     environment:
       - SERVER_PORT=8080
       - SPRING_RABBITMQ_HOST=rabbitmq2
@@ -70,10 +86,23 @@ services:
       - SPRING_DATASOURCE_PASSWORD=postgres
       - SPRING_DATASOURCE_DRIVERCLASSNAME=org.postgresql.Driver
       - SPRING_DATASOURCE_PLATFORM=postgresql
+      - EUREKA_CLIENT_INSTANCE_HOSTNAME=eureka-server
+      - EUREKA_CLIENT_SERVICE-URL_DEFAULTZONE=http://eureka-server:8661/eureka
     depends_on:
       - db
       - rabbitmq
+      - eureka-server
     restart: always    
+  is2-api-gateway:
+    image: mecdcme/is2-api-gateway:latest
+    ports:
+      - 8080:8080
+    environment:
+      - EUREKA_CLIENT_INSTANCE_HOSTNAME=eureka-server  
+      - EUREKA_CLIENT_SERVICE-URL_DEFAULTZONE=http://eureka-server:8661/eureka
+    depends_on:
+      - eureka-server  
+    restart: always      
   db:
     image: mecdcme/is2-postgres:dev
     environment:

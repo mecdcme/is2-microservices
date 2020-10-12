@@ -36,7 +36,7 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @RestController
-@RequestMapping("/api/v${api.version}/dataset")
+@RequestMapping("/dataset")
 public class DataSetController {
 
     private final DatasetService datasetService;

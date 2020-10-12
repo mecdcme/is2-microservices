@@ -51,7 +51,7 @@ public class LoggerController {
     }
 
     @GetMapping("/{idSessione}/{tipo}")
-    public ResponseEntity<List<LogDTO>> findByIdSessioneAndTipo(Long idSessione, String tipo) {
+    public ResponseEntity<List<LogDTO>> findByIdSessioneAndTipo(@PathVariable("idSessione") Long idSessione, @PathVariable("idSessione") String tipo) {
         WorkSessionEntity id = new WorkSessionEntity();
         id.setId(idSessione);
         return ResponseEntity.ok(logRepository.findByWorkSessionAndTypeOrderByIdAsc(id, tipo)
