@@ -428,6 +428,12 @@ CREATE TABLE is2.is2_cls_data_type (
 );
 
 
+
+CREATE TABLE is2.is2_jwttoken (
+    token character varying(200)
+);
+
+
 --
 -- TOC entry 237 (class 1259 OID 25188)
 -- Name: is2_cls_data_type_id_seq; Type: SEQUENCE; Schema: is2; Owner: -
@@ -2641,3 +2647,6 @@ ALTER TABLE ONLY is2.batch_step_execution_context
 --
 -- PostgreSQL database dump complete
 --
+
+ALTER TABLE ONLY is2.is2_jwttoken
+    ADD CONSTRAINT is2_ljwttoken_pkey PRIMARY KEY (token);
