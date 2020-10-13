@@ -10,9 +10,6 @@ docker build -t mecdcme/is2-workflow-monitor .
 cd ../notificator
 mvn clean install -DskipTests
 docker build -t mecdcme/is2-notificator .
-cd ../eureka-server
-mvn clean install -DskipTests
-docker build -t mecdcme/is2-eureka-server .
 cd ../api-gateway
 mvn clean install -DskipTests
 docker build -t mecdcme/is2-api-gateway .

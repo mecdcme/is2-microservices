@@ -7,23 +7,25 @@ spring:
 zuul:
   routes:
     service_workflow_status:
-      path: /resource/api/monitor/**
+      path: /api/monitor/**
       url: http://localhost:8081/monitor
     service_logger:
-      path: /resource/api/log/**
+      path: /api/log/**
       url: http://localhost:8082/log
     service_dataset:
-      path: /resource/api/dataset/**
+      path: /api/dataset/**
       url: http://localhost:8083/dataset
     service_notificator:
-      path: /resource/api/notificator/**
+      path: /api/notificator/**
       url: http://localhost:8084/notificator
 
 eureka:
+  instance:
+    hostname: localhost
   client:
-    register-with-eureka: true
-    fetch-registry: true
+    register-with-eureka: false
+    fetch-registry: false
     service-url:
-      defaultZone: http://localhost:8661/eureka
-    instance:
-      hostname: localhost
+      default-zone: http://${eureka.instance.hostname}:${server.port}/eureka/
+    server:
+      waitTineInMsWhenSyncEmpty: 0

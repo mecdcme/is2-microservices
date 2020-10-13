@@ -1,12 +1,5 @@
 version: '3'
 services:
-  eureka-server:
-    image: mecdcme/is2-eureka-server
-    environment:
-      - SERVER_PORT=8661
-    ports: 
-      - 8661:8661
-    restart: always    
   rabbitmq:
     image: rabbitmq:3.7.14-management
     container_name: rabbitmq2
@@ -30,11 +23,11 @@ services:
       - SPRING_DATASOURCE_DRIVERCLASSNAME=org.postgresql.Driver
       - SPRING_DATASOURCE_PLATFORM=postgresql
       - EUREKA_CLIENT_INSTANCE_HOSTNAME=eureka-server
-      - EUREKA_CLIENT_SERVICE-URL_DEFAULTZONE=http://eureka-server:8661/eureka
+      - EUREKA_CLIENT_SERVICE-URL_DEFAULTZONE=http://is2-api-gateway:8080/eureka
     depends_on:
       - db
       - rabbitmq
-      - eureka-server
+      - is2-api-gateway
     restart: always
   is2-logger:
     image: mecdcme/is2-logger:latest
@@ -49,11 +42,11 @@ services:
       - SPRING_DATASOURCE_DRIVERCLASSNAME=org.postgresql.Driver
       - SPRING_DATASOURCE_PLATFORM=postgresql
       - EUREKA_CLIENT_INSTANCE_HOSTNAME=eureka-server
-      - EUREKA_CLIENT_SERVICE-URL_DEFAULTZONE=http://eureka-server:8661/eureka
+      - EUREKA_CLIENT_SERVICE-URL_DEFAULTZONE=http://is2-api-gateway:8080/eureka
     depends_on:
       - db
       - rabbitmq
-      - eureka-server
+      - is2-api-gateway
     restart: always
   is2-dataset:
     image: mecdcme/is2-dataset:latest
@@ -68,11 +61,11 @@ services:
       - SPRING_DATASOURCE_DRIVERCLASSNAME=org.postgresql.Driver
       - SPRING_DATASOURCE_PLATFORM=postgresql
       - EUREKA_CLIENT_INSTANCE_HOSTNAME=eureka-server
-      - EUREKA_CLIENT_SERVICE-URL_DEFAULTZONE=http://eureka-server:8661/eureka
+      - EUREKA_CLIENT_SERVICE-URL_DEFAULTZONE=http://is2-api-gateway:8080/eureka
     depends_on:
       - db
       - rabbitmq
-      - eureka-server
+      - is2-api-gateway
     restart: always
   is2-notificator:
     image: mecdcme/is2-notificator:latest
@@ -87,21 +80,16 @@ services:
       - SPRING_DATASOURCE_DRIVERCLASSNAME=org.postgresql.Driver
       - SPRING_DATASOURCE_PLATFORM=postgresql
       - EUREKA_CLIENT_INSTANCE_HOSTNAME=eureka-server
-      - EUREKA_CLIENT_SERVICE-URL_DEFAULTZONE=http://eureka-server:8661/eureka
+      - EUREKA_CLIENT_SERVICE-URL_DEFAULTZONE=http://is2-api-gateway:8080/eureka
     depends_on:
       - db
       - rabbitmq
-      - eureka-server
+      - is2-api-gateway
     restart: always    
   is2-api-gateway:
     image: mecdcme/is2-api-gateway:latest
     ports:
       - 8080:8080
-    environment:
-      - EUREKA_CLIENT_INSTANCE_HOSTNAME=eureka-server  
-      - EUREKA_CLIENT_SERVICE-URL_DEFAULTZONE=http://eureka-server:8661/eureka
-    depends_on:
-      - eureka-server  
     restart: always      
   db:
     image: mecdcme/is2-postgres:dev
