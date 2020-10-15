@@ -1,5 +1,9 @@
 package it.istat.is2.apigateway;
 
+import it.istat.is2.apigateway.filters.ErrorFilter;
+import it.istat.is2.apigateway.filters.PostFilter;
+import it.istat.is2.apigateway.filters.PreFilter;
+import it.istat.is2.apigateway.filters.RouteFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -19,4 +23,23 @@ public class ApiGatewayApplication {
     }
 
 
+    @Bean
+    public PreFilter preFilter() {
+        return new PreFilter();
+    }
+
+    @Bean
+    public PostFilter postFilter() {
+        return new PostFilter();
+    }
+
+    @Bean
+    public ErrorFilter errorFilter() {
+        return new ErrorFilter();
+    }
+
+    @Bean
+    public RouteFilter routeFilter() {
+        return new RouteFilter();
+    }
 }

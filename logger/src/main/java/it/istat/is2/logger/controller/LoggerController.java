@@ -80,4 +80,9 @@ public class LoggerController {
         return ResponseEntity.ok().build();
     }
 
+    @GetMapping("/public/test")
+    public ResponseEntity<String> testPublic() {
+        return ResponseEntity.ok("public method test");
+    }
+
 }

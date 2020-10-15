@@ -9,6 +9,7 @@ import it.istat.is2.apigateway.beans.IS2UserDetails;
 import it.istat.is2.apigateway.domain.JwttokenEntity;
 import it.istat.is2.apigateway.repository.JwtTokenRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -25,7 +26,10 @@ import java.util.List;
 public class JwtTokenProvider {
     private static final String AUTH="auth";
     private static final String AUTHORIZATION="Authorization";
-    private String secretKey="secret-key";
+
+    @Value("${security.secret-key:secret-key}")
+    private String secretKey;
+
     private long validityInMilliseconds = 3600000; // 1h
 
     @Autowired
@@ -96,6 +100,10 @@ public class JwtTokenProvider {
         //from token take user value. comment below line for changing it taking from data base
         UserDetails userDetails = getUserDetails(token);
         return new UsernamePasswordAuthenticationToken(userDetails, "", userDetails.getAuthorities());
+    }
+
+    public void removeInvalidTokenFromDB(String token) {
+        this.jwtTokenRepository.delete(new JwttokenEntity(token));
     }
 
 }

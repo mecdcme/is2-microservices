@@ -12,6 +12,13 @@ public class WorkSessionEntity {
     private String descr;
     private Timestamp lastUpdate;
 
+    public WorkSessionEntity(Long id) {
+        this.id = id;
+    }
+
+    public WorkSessionEntity() {
+    }
+
     @Id @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name = "ID")
     public Long getId() {

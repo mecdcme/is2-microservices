@@ -1,3 +1,5 @@
+security:
+  secret-key: is2-secretkey
 server:
   port: 8080
 spring:
@@ -34,6 +36,7 @@ zuul:
     service_notificator:
       path: /api/notificator/**
       url: http://localhost:8084/notificator
+  include-debug-header: true
 
 eureka:
   instance:
@@ -45,3 +48,12 @@ eureka:
       default-zone: http://${eureka.instance.hostname}:${server.port}/eureka/
     server:
       waitTineInMsWhenSyncEmpty: 0
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info, health, metrics, auditevents
+  metrics:
+    export:
+      atlas:
+        enabled: false

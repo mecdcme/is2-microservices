@@ -32,3 +32,12 @@ eureka:
       defaultZone: http://localhost:8080/eureka
     instance:
       hostname: localhost
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info, health, metrics, auditevents
+  metrics:
+    export:
+      atlas:
+        enabled: false

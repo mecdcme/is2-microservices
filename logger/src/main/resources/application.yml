@@ -1,3 +1,12 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info, health, metrics, auditevents
+  metrics:
+    export:
+      atlas:
+        enabled: false
 spring:
   application:
     name: is2-logger-service

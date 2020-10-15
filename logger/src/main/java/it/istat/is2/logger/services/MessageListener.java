@@ -2,6 +2,7 @@ package it.istat.is2.logger.services;
 
 import it.istat.is2.logger.domain.LogEntity;
 import it.istat.is2.logger.domain.WorkSessionEntity;
+import it.istat.is2.logger.exceptions.WorkSessionNotFoundException;
 import it.istat.is2.logger.model.LogCreateRequest;
 import it.istat.is2.logger.model.LogDeleteRequest;
 import it.istat.is2.logger.repository.LogRepository;
@@ -32,13 +33,18 @@ public class MessageListener {
         log.info("Create Log entry from this request : {}", in);
         LogEntity entity = new LogEntity();
 
-        WorkSessionEntity workSessionEntity = this.workSessionRepository.findById(in.getSessionId()).orElseThrow(RuntimeException::new);
-        entity.setWorkSession(workSessionEntity);
-        entity.setMsg(in.getLogContent());
-        entity.setMsgTime(new Timestamp(new Date().getTime()));
-        entity.setType ( in.getType() == null || in.getType().equals("") ? "OUT" : in.getType());
+        try {
+            WorkSessionEntity workSessionEntity = this.workSessionRepository.findById(in.getSessionId()).orElseThrow(WorkSessionNotFoundException::new);
+            entity.setWorkSession(workSessionEntity);
+            entity.setMsg(in.getLogContent());
+            entity.setMsgTime(new Timestamp(new Date().getTime()));
+            entity.setType ( in.getType() == null || in.getType().equals("") ? "OUT" : in.getType());
 
-        this.logRepository.save(entity);
+            this.logRepository.save(entity);
+        }
+        catch (WorkSessionNotFoundException e) {
+            log.error("session with id {} not found, log ignored", in.getSessionId());
+        }
     }
 
     @RabbitListener(queues = "deleteLogQueue")
