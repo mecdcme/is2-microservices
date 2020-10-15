@@ -105,3 +105,5 @@ services:
     image: mecdcme/is2-postgres:dev
     environment:
       - POSTGRES_PASSWORD=postgres
+    ports:
+      - 5432:5432
