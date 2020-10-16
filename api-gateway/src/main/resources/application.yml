@@ -36,6 +36,9 @@ zuul:
     service_notificator:
       path: /api/notificator/**
       url: http://localhost:8084/notificator
+    work_session:
+      path: /api/worksessions/**
+      url: http://localhost:8085/worksessions    
   include-debug-header: true
 
 eureka:

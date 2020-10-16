@@ -85,6 +85,25 @@ services:
       - db
       - rabbitmq
       - is2-api-gateway
+    restart: always
+  is2-work-session:
+    image: mecdcme/is2-work-session:latest
+    ports:
+      - 8085:8085
+    environment:
+      - SERVER_PORT=8085
+      - SPRING_RABBITMQ_HOST=rabbitmq2
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/postgres?currentSchema=is2
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=postgres
+      - SPRING_DATASOURCE_DRIVERCLASSNAME=org.postgresql.Driver
+      - SPRING_DATASOURCE_PLATFORM=postgresql
+      - EUREKA_CLIENT_INSTANCE_HOSTNAME=eureka-server
+      - EUREKA_CLIENT_SERVICE-URL_DEFAULTZONE=http://is2-api-gateway:8080/eureka
+    depends_on:
+      - db
+      - rabbitmq
+      - is2-api-gateway
     restart: always    
   is2-api-gateway:
     image: mecdcme/is2-api-gateway:latest
