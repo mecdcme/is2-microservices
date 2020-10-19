@@ -49,7 +49,7 @@ public class WorkSessionController {
 		this.rabbitTemplate = rabbitTemplate;
 	}
 	
-	@GetMapping
+	@GetMapping(value = "/")
 	public ResponseEntity<List<WorkSessionDTO>> getAllWSession() {
 
 		return ResponseEntity.ok(workSessionService.getAllWSessioneList());
