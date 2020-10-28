@@ -11,10 +11,14 @@ import java.io.Serializable;
 @Builder
 public class LogDeleteRequest implements Serializable {
 
-    public static final long serialVersionUID = 1L;
+	public static final long serialVersionUID = 1L;
 
-    @NotNull @Positive
-    private Long sessioneId;
+	@NotNull
+	@Positive
+	private Long userId;
 
-    private String type;
+	@Positive
+	private Long sessioneId;
+
+	private String type;
 }

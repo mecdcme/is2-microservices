@@ -10,9 +10,7 @@ import java.sql.Timestamp;
 @Setter
 public final class LogDTO implements Serializable {
 
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = -5438016908034454972L;
 	private int id;
 	private String content;

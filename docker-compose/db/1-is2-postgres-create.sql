@@ -787,7 +787,8 @@ CREATE TABLE is2.is2_log (
     msg text,
     msg_time timestamp without time zone,
     type character varying(50),
-    work_session_id integer NOT NULL
+    work_session_id integer,
+    user_id integer NOT NULL
 );
 
 

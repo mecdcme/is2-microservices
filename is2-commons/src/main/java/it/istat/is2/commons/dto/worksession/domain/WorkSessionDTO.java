@@ -4,23 +4,19 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import it.istat.is2.commons.dto.AbstractDomainDTO;
 import it.istat.is2.commons.dto.dataset.domain.DatasetFileDTO;
 import it.istat.is2.commons.dto.ruleset.domain.RulesetDTO;
-import it.istat.is2.commons.dto.user.domain.UserDTO;
 import lombok.Data;
 
 @Data
-public class WorkSessionDTO implements Serializable {
+public class WorkSessionDTO extends AbstractDomainDTO implements Serializable {
 
 	private static final long serialVersionUID = 5663767962017823449L;
-	private Long id;
 
-	private String descr;
-
-	private String name;
 	private Date lastUpdate;
 
-	private UserDTO user;
+	private Long user;
 
 	private BusinessFunctionDTO businessFunction;
 

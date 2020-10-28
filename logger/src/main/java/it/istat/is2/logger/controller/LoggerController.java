@@ -32,7 +32,7 @@ public class LoggerController {
         this.rabbitTemplate = rabbitTemplate;
     }
 
-    @GetMapping("/")
+    @GetMapping()
     public ResponseEntity<List<LogDTO>> findAll() {
         return ResponseEntity.ok(logRepository.findAll()
                 .stream()
@@ -40,7 +40,7 @@ public class LoggerController {
                 .collect(Collectors.toList()));
     }
 
-    @GetMapping("/{idSessione}")
+    @GetMapping("/work-session/{idSessione}")
     public ResponseEntity<List<LogDTO>> findByIdSessione(@PathVariable("idSessione") Long idSessione) {
         WorkSessionEntity id = new WorkSessionEntity();
         id.setId(idSessione);
@@ -50,11 +50,10 @@ public class LoggerController {
                 .collect(Collectors.toList()));
     }
 
-    @GetMapping("/{idSessione}/{tipo}")
-    public ResponseEntity<List<LogDTO>> findByIdSessioneAndTipo(@PathVariable("idSessione") Long idSessione, @PathVariable("idSessione") String tipo) {
-        WorkSessionEntity id = new WorkSessionEntity();
-        id.setId(idSessione);
-        return ResponseEntity.ok(logRepository.findByWorkSessionAndTypeOrderByIdAsc(id, tipo)
+    @GetMapping("/user/{userID}}")
+    public ResponseEntity<List<LogDTO>> findByUser(@PathVariable("userID") Long userID) {
+       
+        return ResponseEntity.ok(logRepository.findByUser(userID)
                 .stream()
                 .map( x -> new LogDTO.Builder().fromEntity(x).build() )
                 .collect(Collectors.toList()));
