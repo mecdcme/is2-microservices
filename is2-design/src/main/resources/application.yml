@@ -1,6 +1,6 @@
 spring:
   application:
-    name: is2-work-session-service
+    name: is2-design-service
   jpa:
     show-sql: false
     hibernate:
@@ -43,5 +43,5 @@ management:
         enabled: false
         
 is2-services:
-    dataset-url: DATASET-SERVICE
+    dataset-url: http://IS2-DATASET-SERVICE
     logger-url: http://is2-logger-service

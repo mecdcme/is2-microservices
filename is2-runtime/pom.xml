@@ -119,7 +119,7 @@
 	</dependencyManagement>
 
 	<build>
-		<finalName>is2-worksession</finalName>
+		<finalName>is2-runtime</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
