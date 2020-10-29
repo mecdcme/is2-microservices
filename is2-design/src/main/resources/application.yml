@@ -19,7 +19,7 @@ spring:
     driverClassName: org.postgresql.Driver
     platform: postgresql
 server:
-  port: 8085
+  port: 8086
  
 api:
   version: 1

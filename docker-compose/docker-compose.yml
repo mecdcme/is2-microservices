@@ -86,12 +86,31 @@ services:
       - rabbitmq
       - is2-api-gateway
     restart: always
-  is2-work-session:
-    image: mecdcme/is2-work-session:latest
+  is2-runtime:
+    image: mecdcme/is2-runtime:latest
     ports:
       - 8085:8085
     environment:
       - SERVER_PORT=8085
+      - SPRING_RABBITMQ_HOST=rabbitmq2
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/postgres?currentSchema=is2
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=postgres
+      - SPRING_DATASOURCE_DRIVERCLASSNAME=org.postgresql.Driver
+      - SPRING_DATASOURCE_PLATFORM=postgresql
+      - EUREKA_CLIENT_INSTANCE_HOSTNAME=eureka-server
+      - EUREKA_CLIENT_SERVICE-URL_DEFAULTZONE=http://is2-api-gateway:8080/eureka
+    depends_on:
+      - db
+      - rabbitmq
+      - is2-api-gateway
+    restart: always    
+  is2-design:
+    image: mecdcme/is2-design:latest
+    ports:
+      - 8086:8086
+    environment:
+      - SERVER_PORT=8086
       - SPRING_RABBITMQ_HOST=rabbitmq2
       - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/postgres?currentSchema=is2
       - SPRING_DATASOURCE_USERNAME=postgres
@@ -119,6 +138,8 @@ services:
       - ZUUL_ROUTES_SERVICE_LOGGER_URL=http://is2-logger:8082/log
       - ZUUL_ROUTES_SERVICE_DATASET_URL=http://is2-dataset:8083/dataset
       - ZUUL_ROUTES_SERVICE_NOTIFICATOR_URL=http://is2-notificator:8084/notificator
+      - ZUUL_ROUTES_SERVICE_RUNTIME_URL=http://is2-runtime:8085/runtime
+      - ZUUL_ROUTES_SERVICE_DESIGN_URL=http://is2-design:8086/design
     restart: always      
   db:
     image: mecdcme/is2-postgres:dev
