@@ -1,5 +1,7 @@
 package it.istat.is2.design.configuration;
 
+import org.modelmapper.ModelMapper;
+import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,5 +22,12 @@ public class AppConfiguration {
 	@Bean
 	public ObjectMapper objectMapper() {
 		return new ObjectMapper().disable(SerializationFeature.FAIL_ON_EMPTY_BEANS);
+	}
+
+	@Bean
+	public ModelMapper modelMapper() {
+		ModelMapper modelMapper = new ModelMapper();
+		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.LOOSE);
+		return modelMapper;
 	}
 }

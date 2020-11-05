@@ -51,9 +51,9 @@ public class BusinessStepService {
         return processStepDao.findById(idbstep);
     }
 
-    public List<StepInstance> findAll() {
+    public List<ProcessStep> findAll() {
         // TODO Auto-generated method stub
-        return null;
+    	  return processStepDao.findAll();
     }
 
     public ProcessStep updateProcessStep(ProcessStep process) {

@@ -6,6 +6,7 @@ import java.util.List;
 
 import it.istat.is2.commons.dto.AbstractDomainDTO;
 import it.istat.is2.commons.dto.dataset.domain.DatasetFileDTO;
+import it.istat.is2.commons.dto.design.domain.BusinessFunctionDTO;
 import it.istat.is2.commons.dto.ruleset.domain.RulesetDTO;
 import lombok.Data;
 

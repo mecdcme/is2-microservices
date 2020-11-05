@@ -10,34 +10,36 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import it.istat.is2.commons.dto.design.domain.BusinessFunctionDTO;
 import it.istat.is2.commons.dto.design.domain.BusinessServiceDTO;
+import it.istat.is2.design.service.BusinessFunctionService;
 import it.istat.is2.design.service.BusinessServiceService;
 import it.istat.is2.design.translators.Translators;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RestController
-@RequestMapping("design/business/service")
-public class BusinessServiceController {
+@RequestMapping("design/business/function")
+public class BusinessFunctionController {
 
-	private static final String Q_CREATE = "business_service_create";
-	private static final String Q_DELETE = "business_service_delete";
+	private static final String Q_CREATE = "business_function_create";
+	private static final String Q_DELETE = "business_function_delete";
 
 	private final RabbitTemplate rabbitTemplate;
 
-	private final BusinessServiceService businessServiceService;
+	private final BusinessFunctionService businessFunctionService;
 
 	@Autowired
-	public BusinessServiceController(RabbitTemplate rabbitTemplate, BusinessServiceService businessServiceService) {
+	public BusinessFunctionController(RabbitTemplate rabbitTemplate, BusinessFunctionService businessFunctionService) {
 		super();
 		this.rabbitTemplate = rabbitTemplate;
-		this.businessServiceService = businessServiceService;
+		this.businessFunctionService = businessFunctionService;
 	}
 
 	@GetMapping
-	public ResponseEntity<List<BusinessServiceDTO>> getAllBusinessService() {
+	public ResponseEntity<List<BusinessFunctionDTO>> getAllBusinessFunction() {
 
-		return ResponseEntity.ok(businessServiceService.findBusinessServices().stream()
+		return ResponseEntity.ok(businessFunctionService.findBFunctions().stream()
 				.map(x -> Translators.translate(x)).collect(Collectors.toList()));
 
 	}
