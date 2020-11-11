@@ -36,9 +36,12 @@ zuul:
     service_notificator:
       path: /api/notificator/**
       url: http://localhost:8084/notificator
-    service_work_session:
-      path: /api/worksession/**
-      url: http://localhost:8085/worksession    
+    service_runtime:
+      path: /api/runtime/**
+      url: http://localhost:8085/runtime
+    service_design:
+      path: /api/design/**
+      url: http://localhost:8086/design        
   include-debug-header: true
 
 eureka:

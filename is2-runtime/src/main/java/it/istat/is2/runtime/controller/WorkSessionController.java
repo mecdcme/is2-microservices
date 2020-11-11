@@ -24,7 +24,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RestController
-@RequestMapping("/worksession")
+@RequestMapping("runtime/worksession")
 public class WorkSessionController {
 
 	private static final String Q_CREATE = "worksession_create";

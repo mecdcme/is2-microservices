@@ -1,5 +1,9 @@
 package it.istat.is2.design.translators;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 
@@ -23,6 +27,13 @@ public class Translators {
 		final WorkSessionDTO workSessionDTO = modelMapper.map(workSession, WorkSessionDTO.class);
 
 		return workSessionDTO;
+
+	}
+	
+	public static List<WorkSessionDTO> translate(final List<WorkSession> workSessions) {
+
+		 
+		return  mapList(workSessions, WorkSessionDTO.class);
 
 	}
 
@@ -49,5 +60,13 @@ public class Translators {
 		final ModelMapper modelMapper = new ModelMapper();
 		final BusinessStepDTO dTO = modelMapper.map(x, BusinessStepDTO.class);
 		return dTO;
+	}
+	
+	public static <S, T> List<T> mapList(List<S> source, Class<T> targetClass) {
+		final ModelMapper modelMapper = new ModelMapper();
+	    return source
+	      .stream()
+	      .map(element -> modelMapper.map(element, targetClass))
+	      .collect(Collectors.toList());
 	}
 }
