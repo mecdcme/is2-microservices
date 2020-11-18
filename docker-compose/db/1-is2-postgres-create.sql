@@ -8,6 +8,9 @@
 DROP SCHEMA IF EXISTS is2_notificator CASCADE;
 CREATE SCHEMA is2_notificator;
 
+DROP SCHEMA IF EXISTS is2_scdf CASCADE;
+CREATE SCHEMA is2_scdf;
+
 -- is2_notificator.Event definition
 
 CREATE TABLE is2_notificator.event (
