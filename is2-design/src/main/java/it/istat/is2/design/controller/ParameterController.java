@@ -16,8 +16,8 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RestController
-@RequestMapping("design/business/step")
-public class BusinessStepController {
+@RequestMapping("design/parameters")
+public class ParameterController {
 
 	private static final String Q_CREATE = "business_service_create";
 	private static final String Q_DELETE = "business_service_delete";

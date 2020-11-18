@@ -27,29 +27,22 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("runtime/worksession")
 public class WorkSessionController {
 
-	private static final String Q_CREATE = "worksession_create";
-	private static final String Q_DELETE = "worksession_delete";
-
-	private final RabbitTemplate rabbitTemplate;
-
-	private WorkSessionService workSessionService;
-
-	
- 
-
-	@Value("${is2-services.dataset-url}")
-	private String datasetServiceId;
 
 	@Autowired
-	public WorkSessionController(WorkSessionService workSessionService, RabbitTemplate rabbitTemplate, RestTemplate restTemplate,EurekaClient eurekaClient) {
-		this.workSessionService = workSessionService;
-		this.rabbitTemplate = rabbitTemplate;
-	}
-	
+	private WorkSessionService workSessionService;
+
+ 
 	@GetMapping
 	public ResponseEntity<List<WorkSessionDTO>> getAllWSession() {
 
 		return ResponseEntity.ok(workSessionService.getAllWSessioneList());
+
+	}
+	
+	@GetMapping(value = "/{workSessionId}")
+	public ResponseEntity<WorkSessionDTO> getWorkSession(@PathVariable("workSessionId") Long workSessionId) {
+
+		return ResponseEntity.ok(workSessionService.getSessione(workSessionId));
 
 	}
 
@@ -62,15 +55,16 @@ public class WorkSessionController {
 	}
 
 	@PostMapping
-	public ResponseEntity<Boolean> create(@RequestBody CreateWorkSessionRequest request) {
-		rabbitTemplate.convertAndSend(Q_CREATE, request);
-		return ResponseEntity.ok(Boolean.TRUE);
+	public ResponseEntity<Long> create(@RequestBody CreateWorkSessionRequest request) {
+		Long newWorkSessionId = workSessionService.newWorkSession(request.getUserId(), request.getDescr(),
+				request.getName(), request.getBusinessFunctionId());
+		return ResponseEntity.ok(newWorkSessionId);
 	}
 
 	@DeleteMapping("/{workSessionId}")
 	public ResponseEntity<Void> deleteWorkSession(@PathVariable("workSessionId") Long workSessionId) {
 
-		rabbitTemplate.convertAndSend(Q_DELETE, workSessionId);
+		workSessionService.deleteWorkSession(workSessionId);
 		return ResponseEntity.ok().build();
 	}
 

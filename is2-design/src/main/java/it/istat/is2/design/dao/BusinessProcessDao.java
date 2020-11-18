@@ -27,6 +27,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import it.istat.is2.design.domain.BusinessFunction;
@@ -39,10 +40,13 @@ public interface BusinessProcessDao extends CrudRepository<BusinessProcess, Long
     List<BusinessProcess> findAll();
 
     @Query("SELECT bp FROM BusinessProcess bp WHERE bp.businessProcessParent IS NULL ORDER BY bp.order ASC ")
-    List<BusinessProcess> findAllProcesses();
+    List<BusinessProcess> findAllProcessesParent();
 
     @Query("SELECT bp FROM BusinessProcess bp WHERE bp.businessProcessParent IS NOT NULL ORDER BY bp.order ASC")
     List<BusinessProcess> findAllSubProcesses();
+
+    @Query("SELECT bp FROM BusinessProcess bp WHERE bp.businessProcessParent =:parent ORDER BY bp.order ASC")
+    List<BusinessProcess> findAllSubProcessesByParent(@Param("parent") BusinessProcess parent);
 
     List<BusinessProcess> findByBusinessFunctionsIn(List<BusinessFunction> businessFunctions);
 

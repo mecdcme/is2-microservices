@@ -28,39 +28,56 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import it.istat.is2.commons.dto.design.domain.BusinessFunctionDTO;
+import it.istat.is2.commons.request.business.BusinessServiceRequestForm;
 import it.istat.is2.design.dao.BusinessFunctionDao;
 import it.istat.is2.design.domain.BusinessFunction;
+import it.istat.is2.design.exceptions.NoDataException;
+import it.istat.is2.design.translators.Translators;
 
 @Service
 public class BusinessFunctionService {
 
-    @Autowired
-    BusinessFunctionDao businessFunctionDao;
+	@Autowired
+	BusinessFunctionDao businessFunctionDao;
 
-    public List<BusinessFunction> findBFunctions() {
-        return businessFunctionDao.findAll();
-    }
+	public List<BusinessFunction> findBFunctions() {
+		return businessFunctionDao.findAll();
+	}
 
-    public BusinessFunction findBFunctionById(long idfunction) {
-        return businessFunctionDao.findById(idfunction).orElse(null);
-    }
+	public BusinessFunctionDTO findBFunctionById(long idfunction) {
 
-    public BusinessFunction updateBFunction(BusinessFunction function) {
+		if (!businessFunctionDao.findById(idfunction).isPresent())
+			throw new NoDataException("Business Function no present");
+		return Translators.translate(businessFunctionDao.findById(idfunction).get());
+	}
 
-        return businessFunctionDao.save(function);
-    }
+	public BusinessFunction updateBFunction(BusinessFunction function) {
 
-    public BusinessFunction deleteBFunction(BusinessFunction funzione) {
+		return businessFunctionDao.save(function);
+	}
 
-        businessFunctionDao.delete(funzione);
+	public BusinessFunction deleteBFunction(BusinessFunction funzione) {
 
-        return funzione;
-    }
+		businessFunctionDao.delete(funzione);
 
-    public BusinessFunction findBFunctionByName(String name) {
+		return funzione;
+	}
 
-        return businessFunctionDao.findBFunctionByName(name);
-    }
+	public void deleteBFunction(Long id) {
 
+		businessFunctionDao.deleteById(id);
+
+	}
+
+	public BusinessFunction findBFunctionByName(String name) {
+
+		return businessFunctionDao.findBFunctionByName(name);
+	}
+
+	public Long create(String jwt, BusinessServiceRequestForm request) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

@@ -26,54 +26,72 @@ package it.istat.is2.design.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import it.istat.is2.commons.dto.design.domain.BusinessProcessDTO;
+import it.istat.is2.commons.request.business.BusinessProcessRequestForm;
 import it.istat.is2.design.dao.BusinessProcessDao;
 import it.istat.is2.design.domain.BusinessFunction;
 import it.istat.is2.design.domain.BusinessProcess;
+import it.istat.is2.design.translators.Translators;
 
 @Service
 public class BusinessProcessService {
 
-    @Autowired
-    BusinessProcessDao businessProcessDao;
+	@Autowired
+	BusinessProcessDao businessProcessDao;
+	@Autowired
+	ModelMapper modelMapper;
+	
+	public List<BusinessProcess> findBProcessByIdFunction(Long idfunction) {
+		List<BusinessFunction> businessFunctions = new ArrayList<>();
+		businessFunctions.add(new BusinessFunction(idfunction));
+		return businessProcessDao.findByBusinessFunctionsIn(businessFunctions);
+	}
 
-    public List<BusinessProcess> findBProcessByIdFunction(Long idfunction) {
-        List<BusinessFunction> businessFunctions = new ArrayList<>();
-        businessFunctions.add(new BusinessFunction(idfunction));
-        return businessProcessDao.findByBusinessFunctionsIn(businessFunctions);
-    }
+	public BusinessProcess findBProcessById(Long idprocess) {
+		return businessProcessDao.findById(idprocess).orElse(null);
+	}
 
-    public BusinessProcess findBProcessById(long idprocess) {
-        return businessProcessDao.findById(idprocess).orElse(null);
-    }
+	public List<BusinessProcess> findAllProcessesParent() {
+		return businessProcessDao.findAllProcessesParent();
+	}
 
-    public List<BusinessProcess> findAllProcesses() {
-        return businessProcessDao.findAllProcesses();
-    }
+	public List<BusinessProcess> findAllSubProcesses() {
+		return businessProcessDao.findAllSubProcesses();
+	}
 
-    public List<BusinessProcess> findAllSubProcesses() {
-        return businessProcessDao.findAllSubProcesses();
-    }
+	public List<BusinessProcess> findAllSubProcessesByParent(Long idParent) {
 
-    public List<BusinessProcess> findAll() {
-        return businessProcessDao.findAll();
-    }
+		return businessProcessDao.findAllSubProcessesByParent(new BusinessProcess(idParent));
+	}
 
-    public BusinessProcess updateBProcess(BusinessProcess process) {
+	public List<BusinessProcess> findAll() {
+		return businessProcessDao.findAll();
+	}
 
-        return businessProcessDao.save(process);
-    }
+	public BusinessProcess updateBProcess(BusinessProcess process) {
 
-    public void deleteBProcess(BusinessProcess process) {
-        // TODO Auto-generated method stub
-        businessProcessDao.delete(process);
-    }
+		return businessProcessDao.save(process);
+	}
 
-    public BusinessProcess findBProcessByName(String name) {
+	public void deleteBProcess(BusinessProcess process) {
+		
+		businessProcessDao.delete(process);
+	}
 
-        return businessProcessDao.findBProcessByName(name);
-    }
+	public BusinessProcess findBProcessByName(String name) {
+
+		return businessProcessDao.findBProcessByName(name);
+	}
+
+	public BusinessProcessDTO create(String jwt, BusinessProcessRequestForm request) {
+		
+		final BusinessProcess businessProcess=modelMapper.map(request, BusinessProcess.class);
+		
+		return Translators.translate(businessProcessDao.save(businessProcess));
+	
+	}
 }
-

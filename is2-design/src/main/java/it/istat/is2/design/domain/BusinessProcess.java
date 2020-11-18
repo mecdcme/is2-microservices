@@ -71,9 +71,9 @@ public class BusinessProcess extends AbstractDomainObject implements Serializabl
     public BusinessProcess() {
     }
 
-    public BusinessProcess(Long idFunction) {
+    public BusinessProcess(Long id) {
         super();
-        this.id = idFunction;
+        this.id = id;
     }
 
 }
