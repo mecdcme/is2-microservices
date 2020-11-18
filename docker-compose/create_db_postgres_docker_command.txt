@@ -1,3 +1,5 @@
 docker build -t mecdcme/is2-postgres:dev -f db.Dockerfile .
 
+docker push mecdcme/is2-postgres:dev 
+
 docker rmi $(docker images --filter "dangling=true" -q --no-trunc)
