@@ -47,5 +47,5 @@ services:
       - ZUUL_ROUTES_SERVICE_RUNTIME_URL=http://is2-runtime:8085/runtime
       - ZUUL_ROUTES_SERVICE_DESIGN_URL=http://is2-design:8086/design
     depends_on: 
-      "rabbitmq"
-      "db"  
+      - "rabbitmq"
+      - "db"  
