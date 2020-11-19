@@ -1,0 +1,16 @@
+/Users/carlo/Progetti/lavoro/istat/repository/is2-microservices/is2-notificator/src/main/java/it/istat/is2/notificator/exceptions/TechnicalException.java
+/Users/carlo/Progetti/lavoro/istat/repository/is2-microservices/is2-notificator/src/main/java/it/istat/is2/notificator/controller/NotificatorController.java
+/Users/carlo/Progetti/lavoro/istat/repository/is2-microservices/is2-notificator/src/main/java/it/istat/is2/notificator/domain/EventEntity.java
+/Users/carlo/Progetti/lavoro/istat/repository/is2-microservices/is2-notificator/src/main/java/it/istat/is2/notificator/exceptions/NoDataException.java
+/Users/carlo/Progetti/lavoro/istat/repository/is2-microservices/is2-notificator/src/main/java/it/istat/is2/notificator/configuration/EmailRecipientsConfiguration.java
+/Users/carlo/Progetti/lavoro/istat/repository/is2-microservices/is2-notificator/src/main/java/it/istat/is2/notificator/services/EmailSender.java
+/Users/carlo/Progetti/lavoro/istat/repository/is2-microservices/is2-notificator/src/main/java/it/istat/is2/notificator/repository/EventRepository.java
+/Users/carlo/Progetti/lavoro/istat/repository/is2-microservices/is2-notificator/src/main/java/it/istat/is2/notificator/NotificatorApplication.java
+/Users/carlo/Progetti/lavoro/istat/repository/is2-microservices/is2-notificator/src/main/java/it/istat/is2/notificator/request/SendEmailRequest.java
+/Users/carlo/Progetti/lavoro/istat/repository/is2-microservices/is2-notificator/src/main/java/it/istat/is2/notificator/dto/EventDTO.java
+/Users/carlo/Progetti/lavoro/istat/repository/is2-microservices/is2-notificator/src/main/java/it/istat/is2/notificator/configuration/OpenApiConfig.java
+/Users/carlo/Progetti/lavoro/istat/repository/is2-microservices/is2-notificator/src/main/java/it/istat/is2/notificator/enums/EventType.java
+/Users/carlo/Progetti/lavoro/istat/repository/is2-microservices/is2-notificator/src/main/java/it/istat/is2/notificator/exceptions/CustomExceptionHandler.java
+/Users/carlo/Progetti/lavoro/istat/repository/is2-microservices/is2-notificator/src/main/java/it/istat/is2/notificator/services/MessageListener.java
+/Users/carlo/Progetti/lavoro/istat/repository/is2-microservices/is2-notificator/src/main/java/it/istat/is2/notificator/configuration/RabbitMQConfiguration.java
+/Users/carlo/Progetti/lavoro/istat/repository/is2-microservices/is2-notificator/src/main/java/it/istat/is2/notificator/request/EventCreateRequest.java

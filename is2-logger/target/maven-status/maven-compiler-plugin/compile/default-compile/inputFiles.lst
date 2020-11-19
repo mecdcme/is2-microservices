@@ -1,0 +1,17 @@
+/Users/carlo/Progetti/lavoro/istat/repository/is2-microservices/is2-logger/src/main/java/it/istat/is2/logger/exceptions/CustomExceptionHandler.java
+/Users/carlo/Progetti/lavoro/istat/repository/is2-microservices/is2-logger/src/main/java/it/istat/is2/logger/domain/WorkSessionEntity.java
+/Users/carlo/Progetti/lavoro/istat/repository/is2-microservices/is2-logger/src/main/java/it/istat/is2/logger/exceptions/NULLUserException.java
+/Users/carlo/Progetti/lavoro/istat/repository/is2-microservices/is2-logger/src/main/java/it/istat/is2/logger/LoggerApplication.java
+/Users/carlo/Progetti/lavoro/istat/repository/is2-microservices/is2-logger/src/main/java/it/istat/is2/logger/repository/WorkSessionRepository.java
+/Users/carlo/Progetti/lavoro/istat/repository/is2-microservices/is2-logger/src/main/java/it/istat/is2/logger/model/LogCreateRequest.java
+/Users/carlo/Progetti/lavoro/istat/repository/is2-microservices/is2-logger/src/main/java/it/istat/is2/logger/configuration/RabbitMQConfiguration.java
+/Users/carlo/Progetti/lavoro/istat/repository/is2-microservices/is2-logger/src/main/java/it/istat/is2/logger/controller/LoggerController.java
+/Users/carlo/Progetti/lavoro/istat/repository/is2-microservices/is2-logger/src/main/java/it/istat/is2/logger/exceptions/WorkSessionNotFoundException.java
+/Users/carlo/Progetti/lavoro/istat/repository/is2-microservices/is2-logger/src/main/java/it/istat/is2/logger/exceptions/NoDataException.java
+/Users/carlo/Progetti/lavoro/istat/repository/is2-microservices/is2-logger/src/main/java/it/istat/is2/logger/domain/LogEntity.java
+/Users/carlo/Progetti/lavoro/istat/repository/is2-microservices/is2-logger/src/main/java/it/istat/is2/logger/model/LogDeleteRequest.java
+/Users/carlo/Progetti/lavoro/istat/repository/is2-microservices/is2-logger/src/main/java/it/istat/is2/logger/exceptions/TechnicalException.java
+/Users/carlo/Progetti/lavoro/istat/repository/is2-microservices/is2-logger/src/main/java/it/istat/is2/logger/repository/LogRepository.java
+/Users/carlo/Progetti/lavoro/istat/repository/is2-microservices/is2-logger/src/main/java/it/istat/is2/logger/model/LogDTO.java
+/Users/carlo/Progetti/lavoro/istat/repository/is2-microservices/is2-logger/src/main/java/it/istat/is2/logger/configuration/OpenApiConfig.java
+/Users/carlo/Progetti/lavoro/istat/repository/is2-microservices/is2-logger/src/main/java/it/istat/is2/logger/services/MessageListener.java

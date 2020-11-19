@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="api-gateway" />
+        <module name="notificator" />
+        <module name="is2-runtime" />
+        <module name="dataset" />
+        <module name="workflow-monitor" />
+        <module name="logger" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="api-gateway" target="11" />
+      <module name="dataset" target="11" />
+      <module name="is2-runtime" target="11" />
+      <module name="logger" target="11" />
+      <module name="notificator" target="11" />
+      <module name="workflow-monitor" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="api-gateway" options="-parameters" />
+      <module name="dataset" options="-parameters" />
+      <module name="is2-runtime" options="-parameters" />
+      <module name="logger" options="-parameters" />
+      <module name="notificator" options="-parameters" />
+      <module name="workflow-monitor" options="-parameters" />
+    </option>
+  </component>
+</project>

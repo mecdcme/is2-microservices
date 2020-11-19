@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../is2-api-gateway/api-gateway.iml" filepath="$PROJECT_DIR$/../is2-api-gateway/api-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../is2-dataset/dataset.iml" filepath="$PROJECT_DIR$/../is2-dataset/dataset.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../is2-runtime/is2-runtime.iml" filepath="$PROJECT_DIR$/../is2-runtime/is2-runtime.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../is2-logger/logger.iml" filepath="$PROJECT_DIR$/../is2-logger/logger.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../is2-notificator/notificator.iml" filepath="$PROJECT_DIR$/../is2-notificator/notificator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../is2-workflow-monitor/workflow-monitor.iml" filepath="$PROJECT_DIR$/../is2-workflow-monitor/workflow-monitor.iml" />
+    </modules>
+  </component>
+</project>

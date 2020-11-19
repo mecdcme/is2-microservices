@@ -18,6 +18,9 @@ spring:
     password: postgres
     driverClassName: org.postgresql.Driver
     platform: postgresql
+    hikari:
+      minimum-idle: 1
+      maximum-pool-size: 3
 server:
   port: 8085
  
