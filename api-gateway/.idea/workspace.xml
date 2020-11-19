@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6b7190de-2a44-45a8-bb01-85f1b10a1627" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../docker-compose/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose/docker-compose.yml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="$USER_HOME$/.m2/wrapper/dists/apache-maven-3.6.3-bin/1iopthnavndlasol9gbrbg6bf2/apache-maven-3.6.3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1imGWOfvZwRDJBZYVqJANm1g6cU" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="JPA.DatabaseSchemaImportDialog" value="84bf353d-c19f-494f-afa1-31eac2217ce5" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="extract.method.default.visibility" value="private" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java/it/istat/is2/apigateway" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="restartRequiresConfirmation" value="false" />
+  </component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="it.istat.is2.apigateway.filters" />
+      <recent name="it.istat.is2.apigateway.exceptions" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="it.istat.is2.apigateway.exceptions" />
+    </key>
+    <key name="ImportMappingsDialog.RecentPackages">
+      <recent name="it.istat.is2.apigateway.domain" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="ApiGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="api-gateway" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="it.istat.is2.apigateway.ApiGatewayApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6b7190de-2a44-45a8-bb01-85f1b10a1627" name="Default Changelist" comment="" />
+      <created>1602505387338</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1602505387338</updated>
+      <workItem from="1602505389089" duration="21225000" />
+      <workItem from="1602834910564" duration="973000" />
+      <workItem from="1602849419495" duration="596000" />
+      <workItem from="1604322532299" duration="114000" />
+      <workItem from="1605535321662" duration="1414000" />
+      <workItem from="1605604281902" duration="558000" />
+      <workItem from="1605608253289" duration="865000" />
+      <workItem from="1605609450477" duration="1477000" />
+      <workItem from="1605781124076" duration="36000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="867" y="449" key="#Assign_Data_Sources" timestamp="1602592414901">
+      <screen x="0" y="23" width="1920" height="1057" />
+    </state>
+    <state x="867" y="449" key="#Assign_Data_Sources/0.23.1920.1057@0.23.1920.1057" timestamp="1602592414901" />
+    <state x="560" y="219" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605621436590">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="560" y="219" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1440.205.1440.875/0.25.1920.1055@0.25.1920.1055" timestamp="1605621436590" />
+    <state x="560" y="217" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1920.1057@0.23.1920.1057" timestamp="1602592256544" />
+    <state x="773" y="242" key="#com.intellij.ide.util.MemberChooser" timestamp="1602668603252">
+      <screen x="0" y="23" width="1920" height="1057" />
+    </state>
+    <state x="773" y="242" key="#com.intellij.ide.util.MemberChooser/0.23.1920.1057@0.23.1920.1057" timestamp="1602668603252" />
+    <state x="697" y="334" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1602592676507">
+      <screen x="0" y="23" width="1920" height="1057" />
+    </state>
+    <state x="697" y="334" key="#com.intellij.ide.util.PackageChooserDialog/0.23.1920.1057@0.23.1920.1057" timestamp="1602592676507" />
+    <state x="406" y="61" width="1304" height="947" key="#com.intellij.jpa.generation.ui.DatabaseSchemaImportDialog" timestamp="1602593732081">
+      <screen x="0" y="23" width="1920" height="1057" />
+    </state>
+    <state x="406" y="61" width="1304" height="947" key="#com.intellij.jpa.generation.ui.DatabaseSchemaImportDialog/0.23.1920.1057@0.23.1920.1057" timestamp="1602593732081" />
+    <state x="646" y="294" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1602834807035">
+      <screen x="0" y="23" width="1920" height="1057" />
+    </state>
+    <state x="646" y="294" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.23.1920.1057@0.23.1920.1057" timestamp="1602834807035" />
+    <state width="1878" height="358" key="GridCell.Tab.0.bottom" timestamp="1602834815600">
+      <screen x="0" y="23" width="1920" height="1057" />
+    </state>
+    <state width="1878" height="358" key="GridCell.Tab.0.bottom/0.23.1920.1057@0.23.1920.1057" timestamp="1602834815600" />
+    <state width="1878" height="358" key="GridCell.Tab.0.center" timestamp="1602834815599">
+      <screen x="0" y="23" width="1920" height="1057" />
+    </state>
+    <state width="1878" height="358" key="GridCell.Tab.0.center/0.23.1920.1057@0.23.1920.1057" timestamp="1602834815599" />
+    <state width="1878" height="358" key="GridCell.Tab.0.left" timestamp="1602834815599">
+      <screen x="0" y="23" width="1920" height="1057" />
+    </state>
+    <state width="1878" height="358" key="GridCell.Tab.0.left/0.23.1920.1057@0.23.1920.1057" timestamp="1602834815599" />
+    <state width="1878" height="358" key="GridCell.Tab.0.right" timestamp="1602834815599">
+      <screen x="0" y="23" width="1920" height="1057" />
+    </state>
+    <state width="1878" height="358" key="GridCell.Tab.0.right/0.23.1920.1057@0.23.1920.1057" timestamp="1602834815599" />
+    <state width="1878" height="358" key="GridCell.Tab.1.bottom" timestamp="1602834815600">
+      <screen x="0" y="23" width="1920" height="1057" />
+    </state>
+    <state width="1878" height="358" key="GridCell.Tab.1.bottom/0.23.1920.1057@0.23.1920.1057" timestamp="1602834815600" />
+    <state width="1878" height="358" key="GridCell.Tab.1.center" timestamp="1602834815600">
+      <screen x="0" y="23" width="1920" height="1057" />
+    </state>
+    <state width="1878" height="358" key="GridCell.Tab.1.center/0.23.1920.1057@0.23.1920.1057" timestamp="1602834815600" />
+    <state width="1878" height="358" key="GridCell.Tab.1.left" timestamp="1602834815600">
+      <screen x="0" y="23" width="1920" height="1057" />
+    </state>
+    <state width="1878" height="358" key="GridCell.Tab.1.left/0.23.1920.1057@0.23.1920.1057" timestamp="1602834815600" />
+    <state width="1878" height="358" key="GridCell.Tab.1.right" timestamp="1602834815600">
+      <screen x="0" y="23" width="1920" height="1057" />
+    </state>
+    <state width="1878" height="358" key="GridCell.Tab.1.right/0.23.1920.1057@0.23.1920.1057" timestamp="1602834815600" />
+    <state x="762" y="336" key="chooseDestDirectoryDialog" timestamp="1602592395391">
+      <screen x="0" y="23" width="1920" height="1057" />
+    </state>
+    <state x="762" y="336" key="chooseDestDirectoryDialog/0.23.1920.1057@0.23.1920.1057" timestamp="1602592395391" />
+    <state x="697" y="307" key="extract.method.dialog" timestamp="1602596185004">
+      <screen x="0" y="23" width="1920" height="1057" />
+    </state>
+    <state x="697" y="307" key="extract.method.dialog/0.23.1920.1057@0.23.1920.1057" timestamp="1602596185004" />
+    <state x="383" y="214" key="new project wizard" timestamp="1602508363572">
+      <screen x="0" y="23" width="1920" height="1057" />
+    </state>
+    <state x="383" y="214" key="new project wizard/0.23.1920.1057@0.23.1920.1057" timestamp="1602508363572" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/it/istat/is2/apigateway/controller/AuthController.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

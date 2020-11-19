@@ -1,0 +1,17 @@
+/Users/carlo/Progetti/lavoro/istat/repository/is2-microservices/workflow-monitor/src/main/java/it/istat/is2/workflowmonitor/repository/WorkFlowStatusHistoryRepository.java
+/Users/carlo/Progetti/lavoro/istat/repository/is2-microservices/workflow-monitor/src/main/java/it/istat/is2/workflowmonitor/exceptions/TechnicalException.java
+/Users/carlo/Progetti/lavoro/istat/repository/is2-microservices/workflow-monitor/src/main/java/it/istat/is2/workflowmonitor/request/WorkFlowStatutsCreateRequest.java
+/Users/carlo/Progetti/lavoro/istat/repository/is2-microservices/workflow-monitor/src/main/java/it/istat/is2/workflowmonitor/repository/WorkFlowStatusRepository.java
+/Users/carlo/Progetti/lavoro/istat/repository/is2-microservices/workflow-monitor/src/main/java/it/istat/is2/workflowmonitor/response/WorkFlowStatusDTO.java
+/Users/carlo/Progetti/lavoro/istat/repository/is2-microservices/workflow-monitor/src/main/java/it/istat/is2/workflowmonitor/exceptions/NoDataException.java
+/Users/carlo/Progetti/lavoro/istat/repository/is2-microservices/workflow-monitor/src/main/java/it/istat/is2/workflowmonitor/enums/ProcessStatus.java
+/Users/carlo/Progetti/lavoro/istat/repository/is2-microservices/workflow-monitor/src/main/java/it/istat/is2/workflowmonitor/domain/WorkflowStatusEntity.java
+/Users/carlo/Progetti/lavoro/istat/repository/is2-microservices/workflow-monitor/src/main/java/it/istat/is2/workflowmonitor/controller/WorkFlowMonitorController.java
+/Users/carlo/Progetti/lavoro/istat/repository/is2-microservices/workflow-monitor/src/main/java/it/istat/is2/workflowmonitor/configuration/RabbitMQConfiguration.java
+/Users/carlo/Progetti/lavoro/istat/repository/is2-microservices/workflow-monitor/src/main/java/it/istat/is2/workflowmonitor/configuration/OpenApiConfig.java
+/Users/carlo/Progetti/lavoro/istat/repository/is2-microservices/workflow-monitor/src/main/java/it/istat/is2/workflowmonitor/domain/WorkflowStatusHistoryEntity.java
+/Users/carlo/Progetti/lavoro/istat/repository/is2-microservices/workflow-monitor/src/main/java/it/istat/is2/workflowmonitor/services/MessageListener.java
+/Users/carlo/Progetti/lavoro/istat/repository/is2-microservices/workflow-monitor/src/main/java/it/istat/is2/workflowmonitor/configuration/PersistenceConfig.java
+/Users/carlo/Progetti/lavoro/istat/repository/is2-microservices/workflow-monitor/src/main/java/it/istat/is2/workflowmonitor/domain/BaseEntity.java
+/Users/carlo/Progetti/lavoro/istat/repository/is2-microservices/workflow-monitor/src/main/java/it/istat/is2/workflowmonitor/WorkflowMonitorApplication.java
+/Users/carlo/Progetti/lavoro/istat/repository/is2-microservices/workflow-monitor/src/main/java/it/istat/is2/workflowmonitor/exceptions/CustomExceptionHandler.java

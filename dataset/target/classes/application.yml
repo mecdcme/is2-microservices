@@ -1,0 +1,48 @@
+spring:
+  application:
+    name: is2-dataset-service
+  jpa:
+    show-sql: false
+    hibernate:
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/is2?createDatabaseIfNotExist=true&useSSL=false&useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: root
+    password: bealu20092296
+    driverClassName: com.mysql.cj.jdbc.Driver
+    platform: mysql
+server:
+  port: 8083
+
+queue:
+  set_variable: dataset_set_variabile
+  loadInputData: dataset_loadinputdata
+  loadTable: dataset_loadtable
+  deleteDataset: dataset_delete
+api:
+  version: 1
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8080/eureka
+    instance:
+      hostname: localhost
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info, health, metrics, auditevents
+  metrics:
+    export:
+      atlas:
+        enabled: false

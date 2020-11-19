@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8c327d97-dbbc-473f-bdb9-0dcd190e7bf3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../api-gateway/src/main/java/it/istat/is2/apigateway/ApiGatewayApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../api-gateway/src/main/java/it/istat/is2/apigateway/ApiGatewayApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api-gateway/src/main/java/it/istat/is2/apigateway/security/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../api-gateway/src/main/java/it/istat/is2/apigateway/security/WebSecurityConfig.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="$USER_HOME$/.m2/wrapper/dists/apache-maven-3.6.3-bin/1iopthnavndlasol9gbrbg6bf2/apache-maven-3.6.3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1hwrtRbNm1VfenyUhIcAzOitPpD" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="extract.method.default.visibility" value="private" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="restartRequiresConfirmation" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="it.istat.is2.dataset.utils" />
+      <recent name="it.istat.is2.dataset.domain" />
+      <recent name="it.istat.is2.dataset.dao" />
+      <recent name="it.istat.is2.dataset.constants" />
+      <recent name="it.istat.is2.dataset.converter" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/main/java/it/istat/is2/dataset/utils" />
+      <recent name="$PROJECT_DIR$/src/main/java/it/istat/is2/dataset/domain" />
+      <recent name="$PROJECT_DIR$/src/main/java/it/istat/is2/dataset/dao" />
+      <recent name="$PROJECT_DIR$/src/main/java/it/istat/is2/dataset" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="DatasetApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="dataset" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="it.istat.is2.dataset.DatasetApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8c327d97-dbbc-473f-bdb9-0dcd190e7bf3" name="Default Changelist" comment="" />
+      <created>1600933212137</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1600933212137</updated>
+      <workItem from="1600933213936" duration="16172000" />
+      <workItem from="1601279874722" duration="1697000" />
+      <workItem from="1601386786956" duration="488000" />
+      <workItem from="1602150553894" duration="8894000" />
+      <workItem from="1602834916902" duration="555000" />
+      <workItem from="1602849416443" duration="597000" />
+      <workItem from="1604322534554" duration="120000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="866" y="449" key="#Assign_Data_Sources" timestamp="1600938294526">
+      <screen x="0" y="23" width="1920" height="1057" />
+    </state>
+    <state x="866" y="449" key="#Assign_Data_Sources/-1440.203.1440.877/0.23.1920.1057@0.23.1920.1057" timestamp="1600938294526" />
+    <state x="559" y="217" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600938282963">
+      <screen x="0" y="23" width="1920" height="1057" />
+    </state>
+    <state x="559" y="217" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1440.203.1440.877/0.23.1920.1057@0.23.1920.1057" timestamp="1600938282963" />
+    <state x="772" y="274" key="#com.intellij.ide.util.MemberChooser" timestamp="1601021989262">
+      <screen x="0" y="23" width="1920" height="1057" />
+    </state>
+    <state x="772" y="274" key="#com.intellij.ide.util.MemberChooser/-1440.203.1440.877/0.23.1920.1057@0.23.1920.1057" timestamp="1601021989262" />
+    <state width="1878" height="290" key="GridCell.Tab.0.bottom" timestamp="1602834815587">
+      <screen x="0" y="23" width="1920" height="1057" />
+    </state>
+    <state width="1878" height="290" key="GridCell.Tab.0.bottom/-1440.203.1440.877/0.23.1920.1057@0.23.1920.1057" timestamp="1601024851575" />
+    <state width="1878" height="290" key="GridCell.Tab.0.bottom/0.23.1920.1057@0.23.1920.1057" timestamp="1602834815587" />
+    <state width="1878" height="290" key="GridCell.Tab.0.center" timestamp="1602834815587">
+      <screen x="0" y="23" width="1920" height="1057" />
+    </state>
+    <state width="1878" height="290" key="GridCell.Tab.0.center/-1440.203.1440.877/0.23.1920.1057@0.23.1920.1057" timestamp="1601024851574" />
+    <state width="1878" height="290" key="GridCell.Tab.0.center/0.23.1920.1057@0.23.1920.1057" timestamp="1602834815587" />
+    <state width="1878" height="290" key="GridCell.Tab.0.left" timestamp="1602834815587">
+      <screen x="0" y="23" width="1920" height="1057" />
+    </state>
+    <state width="1878" height="290" key="GridCell.Tab.0.left/-1440.203.1440.877/0.23.1920.1057@0.23.1920.1057" timestamp="1601024851574" />
+    <state width="1878" height="290" key="GridCell.Tab.0.left/0.23.1920.1057@0.23.1920.1057" timestamp="1602834815587" />
+    <state width="1878" height="290" key="GridCell.Tab.0.right" timestamp="1602834815587">
+      <screen x="0" y="23" width="1920" height="1057" />
+    </state>
+    <state width="1878" height="290" key="GridCell.Tab.0.right/-1440.203.1440.877/0.23.1920.1057@0.23.1920.1057" timestamp="1601024851575" />
+    <state width="1878" height="290" key="GridCell.Tab.0.right/0.23.1920.1057@0.23.1920.1057" timestamp="1602834815587" />
+    <state width="1878" height="290" key="GridCell.Tab.1.bottom" timestamp="1602834815588">
+      <screen x="0" y="23" width="1920" height="1057" />
+    </state>
+    <state width="1878" height="290" key="GridCell.Tab.1.bottom/-1440.203.1440.877/0.23.1920.1057@0.23.1920.1057" timestamp="1601024851577" />
+    <state width="1878" height="290" key="GridCell.Tab.1.bottom/0.23.1920.1057@0.23.1920.1057" timestamp="1602834815588" />
+    <state width="1878" height="290" key="GridCell.Tab.1.center" timestamp="1602834815588">
+      <screen x="0" y="23" width="1920" height="1057" />
+    </state>
+    <state width="1878" height="290" key="GridCell.Tab.1.center/-1440.203.1440.877/0.23.1920.1057@0.23.1920.1057" timestamp="1601024851576" />
+    <state width="1878" height="290" key="GridCell.Tab.1.center/0.23.1920.1057@0.23.1920.1057" timestamp="1602834815588" />
+    <state width="1878" height="290" key="GridCell.Tab.1.left" timestamp="1602834815587">
+      <screen x="0" y="23" width="1920" height="1057" />
+    </state>
+    <state width="1878" height="290" key="GridCell.Tab.1.left/-1440.203.1440.877/0.23.1920.1057@0.23.1920.1057" timestamp="1601024851575" />
+    <state width="1878" height="290" key="GridCell.Tab.1.left/0.23.1920.1057@0.23.1920.1057" timestamp="1602834815587" />
+    <state width="1878" height="290" key="GridCell.Tab.1.right" timestamp="1602834815588">
+      <screen x="0" y="23" width="1920" height="1057" />
+    </state>
+    <state width="1878" height="290" key="GridCell.Tab.1.right/-1440.203.1440.877/0.23.1920.1057@0.23.1920.1057" timestamp="1601024851576" />
+    <state width="1878" height="290" key="GridCell.Tab.1.right/0.23.1920.1057@0.23.1920.1057" timestamp="1602834815588" />
+    <state x="497" y="213" key="Maven.ArtifactSearchDialog" timestamp="1600954695866">
+      <screen x="0" y="23" width="1920" height="1057" />
+    </state>
+    <state x="497" y="213" key="Maven.ArtifactSearchDialog/-1440.203.1440.877/0.23.1920.1057@0.23.1920.1057" timestamp="1600954695866" />
+    <state x="980" y="441" key="extract.method.dialog" timestamp="1601027888022">
+      <screen x="0" y="23" width="1920" height="1057" />
+    </state>
+    <state x="980" y="441" key="extract.method.dialog/0.23.1920.1057@0.23.1920.1057" timestamp="1601027888022" />
+  </component>
+</project>

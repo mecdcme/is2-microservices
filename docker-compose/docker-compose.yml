@@ -1,17 +1,11 @@
 version: '3'
 services:
-  rabbitmq:
-    image: rabbitmq:3.7.14-management
-    container_name: rabbitmq2
-    environment:
-      RABBITMQ_ERLANG_COOKIE: ${RABBITMQ_ERLANG_COOKIE}
-      RABBITMQ_DEFAULT_USER: ${RABBITMQ_DEFAULT_USER}
-      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_DEFAULT_PASS}
-    ports:
-      - 5672:5672
-      - 15672:15672
   is2-workflow-monitor:
     image: mecdcme/is2-workflow-monitor:latest
+    deploy:
+      resources:
+        limits:
+          memory: 512M
     ports:
       - 8081:8081
     environment:
@@ -24,13 +18,12 @@ services:
       - SPRING_DATASOURCE_PLATFORM=postgresql
       - EUREKA_CLIENT_INSTANCE_HOSTNAME=eureka-server
       - EUREKA_CLIENT_SERVICE-URL_DEFAULTZONE=http://is2-api-gateway:8080/eureka
-    depends_on:
-      - db
-      - rabbitmq
-      - is2-api-gateway
-    restart: always
   is2-logger:
     image: mecdcme/is2-logger:latest
+    deploy:
+      resources:
+        limits:
+          memory: 512M
     ports:
       - 8082:8082
     environment:
@@ -43,13 +36,12 @@ services:
       - SPRING_DATASOURCE_PLATFORM=postgresql
       - EUREKA_CLIENT_INSTANCE_HOSTNAME=eureka-server
       - EUREKA_CLIENT_SERVICE-URL_DEFAULTZONE=http://is2-api-gateway:8080/eureka
-    depends_on:
-      - db
-      - rabbitmq
-      - is2-api-gateway
-    restart: always
   is2-dataset:
     image: mecdcme/is2-dataset:latest
+    deploy:
+      resources:
+        limits:
+          memory: 512M
     ports:
       - 8083:8083
     environment:
@@ -62,13 +54,12 @@ services:
       - SPRING_DATASOURCE_PLATFORM=postgresql
       - EUREKA_CLIENT_INSTANCE_HOSTNAME=eureka-server
       - EUREKA_CLIENT_SERVICE-URL_DEFAULTZONE=http://is2-api-gateway:8080/eureka
-    depends_on:
-      - db
-      - rabbitmq
-      - is2-api-gateway
-    restart: always
   is2-notificator:
     image: mecdcme/is2-notificator:latest
+    deploy:
+      resources:
+        limits:
+          memory: 512M
     ports:
       - 8084:8084
     environment:
@@ -81,13 +72,12 @@ services:
       - SPRING_DATASOURCE_PLATFORM=postgresql
       - EUREKA_CLIENT_INSTANCE_HOSTNAME=eureka-server
       - EUREKA_CLIENT_SERVICE-URL_DEFAULTZONE=http://is2-api-gateway:8080/eureka
-    depends_on:
-      - db
-      - rabbitmq
-      - is2-api-gateway
-    restart: always
   is2-runtime:
     image: mecdcme/is2-runtime:latest
+    deploy:
+      resources:
+        limits:
+          memory: 512M
     ports:
       - 8085:8085
     environment:
@@ -100,13 +90,12 @@ services:
       - SPRING_DATASOURCE_PLATFORM=postgresql
       - EUREKA_CLIENT_INSTANCE_HOSTNAME=eureka-server
       - EUREKA_CLIENT_SERVICE-URL_DEFAULTZONE=http://is2-api-gateway:8080/eureka
-    depends_on:
-      - db
-      - rabbitmq
-      - is2-api-gateway
-    restart: always    
   is2-design:
     image: mecdcme/is2-design:latest
+    deploy:
+      resources:
+        limits:
+          memory: 512M
     ports:
       - 8086:8086
     environment:
@@ -119,35 +108,3 @@ services:
       - SPRING_DATASOURCE_PLATFORM=postgresql
       - EUREKA_CLIENT_INSTANCE_HOSTNAME=eureka-server
       - EUREKA_CLIENT_SERVICE-URL_DEFAULTZONE=http://is2-api-gateway:8080/eureka
-    depends_on:
-      - db
-      - rabbitmq
-      - is2-api-gateway
-    restart: always    
-  is2-api-gateway:
-    image: mecdcme/is2-api-gateway:latest
-    ports:
-      - 8080:8080
-    environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/postgres?currentSchema=is2
-      - SPRING_DATASOURCE_USERNAME=postgres
-      - SPRING_DATASOURCE_PASSWORD=postgres
-      - SPRING_DATASOURCE_DRIVERCLASSNAME=org.postgresql.Driver
-      - SPRING_DATASOURCE_PLATFORM=postgresql
-      - ZUUL_ROUTES_SERVICE_WORKFLOW_STATUS_URL=http://is2-workflow-monitor:8081/monitor
-      - ZUUL_ROUTES_SERVICE_LOGGER_URL=http://is2-logger:8082/log
-      - ZUUL_ROUTES_SERVICE_DATASET_URL=http://is2-dataset:8083/dataset
-      - ZUUL_ROUTES_SERVICE_NOTIFICATOR_URL=http://is2-notificator:8084/notificator
-      - ZUUL_ROUTES_SERVICE_RUNTIME_URL=http://is2-runtime:8085/runtime
-      - ZUUL_ROUTES_SERVICE_DESIGN_URL=http://is2-design:8086/design
-    restart: always      
-  db:
-    image: mecdcme/is2-postgres:dev
-    environment:
-      - POSTGRES_PASSWORD=postgres
-    ports:
-      - 5432:5432
-    volumes:
-      - ./postgres/data:/var/lib/postgresql/data
-    
- 
