@@ -28,7 +28,7 @@ spring:
 zuul:
   routes:
     service_workflow_status:
-      path: /S2-LOGGER-SERVICE/**
+      path: /api/monitor/**
       url: http://localhost:8081/monitor
     service_logger:
       path: /api/log/**
